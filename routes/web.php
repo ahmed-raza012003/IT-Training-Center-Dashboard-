@@ -6,7 +6,7 @@ use App\Http\Controllers\TimingController;
 use App\Http\Controllers\FeeStructureController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\InstallmentController;
 use App\Http\Controllers\FeeSubmissionController;
 use Illuminate\Support\Facades\Route;
 
@@ -114,9 +114,11 @@ Route::put('/students/{student}', [StudentController::class, 'update'])->name('s
 Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
 
-Route::put('/students/{student}/update-fee-status', [StudentController::class, 'updateFeeStatus'])->name('students.updateFeeStatus');
 
+Route::post('/installments/generate/{student}', [InstallmentController::class, 'generateInstallments'])->name('installments.generate');
+// Correct route for handling installment payments
+Route::post('/installments/{student}/pay', [InstallmentController::class, 'processPayment'])->name('installments.pay');
 
-Route::get('students/{student}/fee-submissions/create', [FeeSubmissionController::class, 'create'])->name('fee-submissions.create');
-Route::post('students/{student}/fee-submissions', [FeeSubmissionController::class, 'store'])->name('fee-submissions.store');
-Route::post('fee-submissions/{student}/installment/{installment}', [FeeSubmissionController::class, 'submitInstallment'])->name('fee-submissions.submitInstallment');
+Route::post('/students/{student}/submit-fee', [FeeSubmissionController::class, 'submitFee'])->name('fee.submit');
+
+Route::get('/students/{student}/fee-submissions', [FeeSubmissionController::class, 'show'])->name('fee-submissions.show');

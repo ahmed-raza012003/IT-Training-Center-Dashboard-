@@ -2,45 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
-use App\Services\FeeSubmissionService;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Services\InstallmentService;
+use App\Services\FeeSubmissionService;
 
 class FeeSubmissionController extends Controller
 {
     protected $feeSubmissionService;
+    protected $installmentService;
 
-    public function __construct(FeeSubmissionService $feeSubmissionService)
+    public function __construct(FeeSubmissionService $feeSubmissionService, InstallmentService $installmentService)
     {
         $this->feeSubmissionService = $feeSubmissionService;
+        $this->installmentService = $installmentService;
     }
 
     public function show(Student $student)
     {
-        // Get fee submissions for the student
         $feeSubmissions = $this->feeSubmissionService->getByStudent($student->id);
+        $installments = $this->installmentService->getInstallmentsForStudent($student->id);
 
-        // Pass the necessary data to the view
-        return view('students.show', [
-            'student' => $student,
-            'feeSubmissions' => $feeSubmissions,
-            'feeSubmissionService' => $this->feeSubmissionService // Ensure this line is present
-        ]);
+        return view('content.student.details', compact('feeSubmissions', 'student', 'installments'));
     }
 
-    public function store(Request $request, Student $student)
+    public function submitFee(Request $request, Student $student)
     {
-        // Validate the request
-        $validated = $request->validate([
-            'amount' => 'required|numeric|min:0',
-            'submission_date' => 'required|date',
-        ]);
+        // Ensure all installments are paid before submitting total fee
+        if ($student->installments->every->is_paid) {
+            $this->feeSubmissionService->submitFee($student, $student->feeStructure->final_fee, now());
 
-        // Create a new fee submission using the service
-        $feeSubmission = $this->feeSubmissionService->createFeeSubmission($student, $validated);
+            return redirect()->route('students.show', $student->id)->with('success', 'Total fee submitted successfully.');
+        }
 
-        // Redirect back with success message
-        return redirect()->route('students.show', $student->id)
-                         ->with('success', 'Fee submitted successfully.');
+        return redirect()->back()->with('error', 'All installments must be paid before submitting the total fee.');
     }
 }
+

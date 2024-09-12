@@ -13,6 +13,7 @@ class UpdateFeeStructureRequest extends FormRequest
             'main_fee' => 'required|numeric',
             'discount_fee' => 'required|numeric',
             'final_fee' => 'required|numeric',
+            'course_duration' => 'nullable|integer|min:1',
         ];
     }
 
@@ -27,6 +28,8 @@ class UpdateFeeStructureRequest extends FormRequest
             'discount_fee.numeric' => 'The discount fee must be a number.',
             'final_fee.required' => 'The final fee field is required.',
             'final_fee.numeric' => 'The final fee must be a number.',
+            'course_duration.integer' => 'The course duration must be a valid number of months.',
+            'course_duration.min' => 'The course duration must be at least 1 month.',
         ];
     }
 }

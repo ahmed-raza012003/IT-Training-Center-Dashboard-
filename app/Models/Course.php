@@ -26,4 +26,5 @@ class Course extends Model
     {
         return $this->hasMany(Timing::class);
     }
+    
 }

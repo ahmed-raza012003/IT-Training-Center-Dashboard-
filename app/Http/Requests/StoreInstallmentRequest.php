@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFeeSubmissionRequest extends FormRequest
+class StoreInstallmentRequest extends FormRequest
 {
     public function rules()
     {

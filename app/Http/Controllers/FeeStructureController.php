@@ -32,7 +32,11 @@ class FeeStructureController extends Controller
 
     public function store(StoreFeeStructureRequest $request)
     {
-        $this->feeStructureService->create($request->validated());
+        $validatedData = $request->validated();
+
+        // Service handles fee calculation and creation
+        $this->feeStructureService->create($validatedData);
+
         return redirect()->route('fees.index')->with('success', 'Fee Structure created successfully.');
     }
 
@@ -44,13 +48,19 @@ class FeeStructureController extends Controller
 
     public function update(UpdateFeeStructureRequest $request, FeeStructure $feeStructure)
     {
-        $this->feeStructureService->update($feeStructure, $request->validated());
+        $validatedData = $request->validated();
+
+        // Service handles fee update logic
+        $this->feeStructureService->update($feeStructure, $validatedData);
+
         return redirect()->route('fees.index')->with('success', 'Fee Structure updated successfully.');
     }
 
     public function destroy(FeeStructure $feeStructure)
     {
+        // Service handles deletion
         $this->feeStructureService->delete($feeStructure);
+
         return redirect()->route('fees.index')->with('success', 'Fee Structure deleted successfully.');
     }
 }

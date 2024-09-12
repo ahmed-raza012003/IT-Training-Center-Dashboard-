@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Services\InstallmentService;
 
 class Student extends Model
 {
@@ -30,7 +31,13 @@ class Student extends Model
         'registration_number',
     ];
     
-
+    protected static function booted()
+    {
+        static::created(function ($student) {
+            $installmentService = app(InstallmentService::class);
+            $installmentService->generateInstallments($student); // Automatically generate installments upon student creation
+        });
+    }
     public function branch()
     {
         return $this->belongsTo(Branch::class);
@@ -55,4 +62,13 @@ class Student extends Model
     {
         return $this->belongsTo(FeeStructure::class);
     }
+    public function installments()
+{
+    return $this->hasMany(Installment::class);
+}
+public function feeSubmissions()
+    {
+        return $this->hasMany(FeeSubmission::class);
+    }
+    
 }

@@ -14,6 +14,8 @@ class FeeStructure extends Model
         'main_fee',
         'discount_fee',
         'final_fee',
+        'course_duration',
+        
     ];
 
     /**
@@ -39,20 +41,27 @@ class FeeStructure extends Model
     {
         return $this->timing ? $this->timing->course->duration : null;
     }
-
-    /**
-     * Calculate the monthly installment based on the final fee and course duration.
-     *
-     * @return float|string
-     */
-    public function calculateMonthlyInstallment()
+    public function calculateFinalFee()
     {
-        // Ensure final_fee and course duration are set
-        if ($this->final_fee && $this->courseDuration()) {
-            $installment = $this->final_fee / $this->courseDuration();
-            return round($installment, 3);  // Round to 2 decimal places
-        }
-
-        return 'N/A';  // Return 'N/A' if values are missing
+        return $this->main_fee - $this->discount_fee;
     }
+    
+    public function installments()
+{
+    return $this->hasMany(Installment::class);
+}
+public function feeSubmissions()
+{
+    return $this->hasMany(FeeSubmission::class);
+}
+public function calculateMonthlyInstallment()
+{
+    // Ensure course_duration and final_fee are available
+    if ($this->course_duration > 0) {
+        return $this->final_fee / $this->course_duration;
+    }
+    return 0; // Return 0 if no valid course duration
+}
+
+
 }

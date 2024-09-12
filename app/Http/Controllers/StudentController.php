@@ -20,10 +20,10 @@ class StudentController extends Controller
     protected $feeSubmissionService;
     protected $studentService;
 
-    public function __construct(FeeSubmissionService $feeSubmissionService, StudentService $studentService)
+    public function __construct(StudentService $studentService, FeeSubmissionService $feeSubmissionService)
     {
-        $this->feeSubmissionService = $feeSubmissionService;
         $this->studentService = $studentService;
+        $this->feeSubmissionService = $feeSubmissionService;
     }
 
     public function index()
@@ -31,12 +31,21 @@ class StudentController extends Controller
         $students = Student::with(['branch', 'batch', 'course', 'timing', 'feeStructure'])->paginate(10);
         return view('content.student.index', compact('students'));
     }
-
-    public function show(Student $student)
+    public function show($id)
     {
-        $feeSubmissions = $this->feeSubmissionService->getByStudent($student->id);
-        return view('content.student.details', compact('student', 'feeSubmissions'));
+        $student = Student::with(['installments', 'feeSubmissions'])->findOrFail($id);
+    
+        // Get unpaid installments
+        $installments = $student->installments()->where('is_paid', false)->get(); // Ensure this query is correct
+    
+        // Get all fee submissions
+        $feeSubmissions = $student->feeSubmissions;
+    
+        return view('content.student.details', compact('student', 'installments', 'feeSubmissions'));
     }
+    
+
+
 
     public function create()
     {
