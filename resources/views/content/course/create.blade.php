@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('body')
     <div class="wrapper">
         <div class="page-content">
@@ -35,7 +36,19 @@
                             </div>
                             <div class="mb-3">
                                 <label for="outline" class="form-label">Outline</label>
-                                <textarea class="form-control" id="outline" name="outline">{{ old('outline') }}</textarea>
+                                <!-- TinyMCE Web Component -->
+                                <tinymce-editor
+                                    id="outline"
+                                    name="outline"
+                                    api-key="g7yda61cfpqh9dw4umndj8dvr2q7bnu5jzqiul10zgxz0gd9"
+                                    height="500"
+                                    menubar="false"
+                                    plugins="advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount"
+                                    toolbar="undo redo | blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help"
+                                    content_style="body { font-family:Helvetica,Arial,sans-serif; font-size:14px; }"
+                                >
+                                    {{ old('outline') }}
+                                </tinymce-editor>
                                 @error('outline')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
@@ -54,4 +67,7 @@
             </div>
         </div>
     </div>
+
+    <!-- Include TinyMCE Web Component Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-webcomponent@2/dist/tinymce-webcomponent.min.js"></script>
 @endsection

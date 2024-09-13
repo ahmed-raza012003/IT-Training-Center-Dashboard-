@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstallmentController;
 use App\Http\Controllers\FeeSubmissionController;
+use App\Http\Controllers\InstructorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -122,3 +123,12 @@ Route::post('/installments/{student}/pay', [InstallmentController::class, 'proce
 Route::post('/students/{student}/submit-fee', [FeeSubmissionController::class, 'submitFee'])->name('fee.submit');
 
 Route::get('/students/{student}/fee-submissions', [FeeSubmissionController::class, 'show'])->name('fee-submissions.show');
+Route::get('/students/{student}', [InstallmentController::class, 'show'])->name('students.show');
+
+Route::get('/instructors', [InstructorController::class, 'index'])->name('instructors.index');
+Route::get('/instructors/create', [InstructorController::class, 'create'])->name('instructors.create');
+Route::post('/instructors', [InstructorController::class, 'store'])->name('instructors.store');
+Route::get('/instructors/{instructor}/edit', [InstructorController::class, 'edit'])->name('instructors.edit');
+Route::put('/instructors/{instructor}', [InstructorController::class, 'update'])->name('instructors.update');
+Route::delete('/instructors/{instructor}', [InstructorController::class, 'destroy'])->name('instructors.destroy');
+Route::get('/instructors/{instructor}', [InstructorController::class, 'show'])->name('instructors.show');

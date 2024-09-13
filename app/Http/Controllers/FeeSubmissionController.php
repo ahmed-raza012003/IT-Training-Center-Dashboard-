@@ -27,15 +27,16 @@ class FeeSubmissionController extends Controller
     }
 
     public function submitFee(Request $request, Student $student)
-    {
-        // Ensure all installments are paid before submitting total fee
-        if ($student->installments->every->is_paid) {
-            $this->feeSubmissionService->submitFee($student, $student->feeStructure->final_fee, now());
+{
+    // Ensure all installments are paid and total fee hasn't been submitted
+    if ($student->installments->every->is_paid && !$student->total_fee_submitted) {
+        $this->feeSubmissionService->submitFee($student, $student->feeStructure->final_fee, now());
 
-            return redirect()->route('students.show', $student->id)->with('success', 'Total fee submitted successfully.');
-        }
-
-        return redirect()->back()->with('error', 'All installments must be paid before submitting the total fee.');
+        return redirect()->route('students.show', $student->id)->with('success', 'Total fee submitted successfully.');
     }
+
+    return redirect()->back()->with('error', 'Total fee has already been submitted or all installments are not paid.');
+}
+
 }
 

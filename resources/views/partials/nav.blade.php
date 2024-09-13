@@ -154,6 +154,29 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link menu-arrow" href="#sidebarInstructors" data-bs-toggle="collapse"
+                                        role="button" aria-expanded="false" aria-controls="sidebarInstructors">
+                                        <span class="nav-icon">
+                                            <iconify-icon icon="feather:user"></iconify-icon>
+                                        </span>
+                                        <span class="nav-text">Instructors</span>
+                                    </a>
+                                    <div class="collapse" id="sidebarInstructors">
+                                        <ul class="nav sub-navbar-nav">
+                                            <li class="sub-nav-item">
+                                                <a class="sub-nav-link" href="{{ route('instructors.create') }}">Create</a>
+                                            </li>
+                                            <li class="sub-nav-item">
+                                                <a class="sub-nav-link" href="{{ route('instructors.index') }}">List</a>
+                                            </li>
+                                            <li class="sub-nav-item">
+                                                <a class="sub-nav-link" href="{{ route('instructors.index') }}">Edit</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                                <li class="nav-item">
                                     <a class="nav-link menu-arrow" href="#sidebarStudents" data-bs-toggle="collapse"
                                         role="button" aria-expanded="false" aria-controls="sidebarStudents">
                                         <span class="nav-icon">

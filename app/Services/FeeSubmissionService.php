@@ -20,10 +20,15 @@ class FeeSubmissionService
         $submission->submission_date = $submissionDate;
         $submission->status = 'Paid';
         $submission->save();
-
+    
         // Mark total fee status as 'Paid'
         $this->updateTotalFeeStatus($student);
+    
+        // Mark total fee as submitted
+        $student->total_fee_submitted = true;
+        $student->save();
     }
+    
 
     public function updateTotalFeeStatus(Student $student)
     {
