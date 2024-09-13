@@ -154,6 +154,34 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link menu-arrow" href="#sidebarStaff" data-bs-toggle="collapse"
+                                       role="button" aria-expanded="false" aria-controls="sidebarStaff">
+                                        <span class="nav-icon">
+                                            <iconify-icon icon="feather:users"></iconify-icon>
+                                        </span>
+                                        <span class="nav-text">Human Resources</span>
+                                    </a>
+                                    <div class="collapse" id="sidebarStaff">
+                                        <ul class="nav sub-navbar-nav">
+                                            <li class="sub-nav-item"> 
+                                                <a class="sub-nav-link" href="{{ route('attendance.index') }}">Attendance</a>
+                                            </li>
+                                            
+                                          
+                                            <li class="sub-nav-item">
+                                                <a class="sub-nav-link" href="{{ route('staff.create') }}">Create Staff Member</a>
+                                            </li>
+                                            <li class="sub-nav-item">
+                                                <a class="sub-nav-link" href="{{ route('staff.index') }}">List Staff Members</a>
+                                            </li>
+                                            <li class="sub-nav-item">
+                                                <a class="sub-nav-link" href="{{ route('staff.index') }}">Edit Staff Members</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                
+                                <li class="nav-item">
                                     <a class="nav-link menu-arrow" href="#sidebarInstructors" data-bs-toggle="collapse"
                                         role="button" aria-expanded="false" aria-controls="sidebarInstructors">
                                         <span class="nav-icon">

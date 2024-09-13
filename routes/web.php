@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstallmentController;
 use App\Http\Controllers\FeeSubmissionController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -132,3 +134,24 @@ Route::get('/instructors/{instructor}/edit', [InstructorController::class, 'edit
 Route::put('/instructors/{instructor}', [InstructorController::class, 'update'])->name('instructors.update');
 Route::delete('/instructors/{instructor}', [InstructorController::class, 'destroy'])->name('instructors.destroy');
 Route::get('/instructors/{instructor}', [InstructorController::class, 'show'])->name('instructors.show');
+
+
+// Staff Routes
+Route::get('/staff/create', [StaffController::class, 'create'])->name('staff.create');
+Route::post('/staff/create', [StaffController::class, 'store'])->name('staff.store');
+Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
+Route::get('/staff/{id}', [StaffController::class, 'show'])->name('staff.show');
+Route::get('/staff/{id}/edit', [StaffController::class, 'edit'])->name('staff.edit');
+Route::post('/staff/{id}/edit', [StaffController::class, 'update'])->name('staff.update');
+Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.destroy');
+
+
+
+// Route to view all attendances
+Route::get('/attendance/create', [AttendanceController::class, 'create'])->name('attendance.create');
+
+
+Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+
+// Route to store a new attendance record
+Route::post('/attendance', [AttendanceController::class, 'store'])->name('attendance.store');
