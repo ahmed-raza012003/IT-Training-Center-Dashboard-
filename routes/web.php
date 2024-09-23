@@ -149,7 +149,8 @@ Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.d
 
 // Route to view all attendances
 Route::get('/attendance/create', [AttendanceController::class, 'create'])->name('attendance.create');
-
+Route::post('attendance/checkin/{id}', [AttendanceController::class, 'checkIn'])->name('attendance.checkin');
+Route::post('attendance/checkout/{id}', [AttendanceController::class, 'checkOut'])->name('attendance.checkout');
 
 Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
 
