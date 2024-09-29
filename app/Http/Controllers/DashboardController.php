@@ -2,16 +2,62 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\Course;
+use App\Models\Instructor;
+use App\Models\StaffMember;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('content.index');
+        // Basic counts
+        $instructorCount = Instructor::count();
+        $studentCount = Student::count();
+        $courseCount = Course::count();
+        $staffCount = StaffMember::count();
+    
+        // Retrieve the top 5 courses with the most enrolled students
+        $topCourses = Course::withCount('students')
+                            ->orderBy('students_count', 'desc')
+                            ->take(5)
+                            ->get();
+    
+        // Dynamic student registrations over time (e.g., past 6 months)
+        $registrations = Student::where('created_at', '>=', now()->subMonths(6))
+                                ->selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as count')
+                                ->groupBy('month')
+                                ->orderBy('month', 'asc')
+                                ->get()
+                                ->pluck('count', 'month')
+                                ->toArray();
+    
+        // Prepare months and registration counts
+        $months = [];
+        $registrationsPerMonth = [];
+        
+        for ($i = 5; $i >= 0; $i--) {
+            $date = now()->subMonths($i)->format('Y-m'); // Getting the month in 'YYYY-MM' format
+            $months[] = now()->subMonths($i)->format('F Y'); // Month name (e.g., "September 2024")
+            $registrationsPerMonth[] = $registrations[$date] ?? 0; // Use 0 if no registrations for that month
+        }
+    
+        // Dynamic student registrations over time
+        $registrationDates = Student::selectRaw('DATE(created_at) as date, COUNT(*) as count')
+                                    ->groupBy('date')
+                                    ->orderBy('date', 'asc')
+                                    ->get()
+                                    ->pluck('count', 'date')
+                                    ->toArray();
+    
+        // Create data for the graph
+        $dates = array_keys($registrationDates);
+        $studentsPerDate = array_values($registrationDates);
+    
+        return view('content.index', compact('studentCount', 'courseCount', 'staffCount', 'instructorCount', 'topCourses', 'dates', 'studentsPerDate', 'months', 'registrationsPerMonth'));
     }
-
+    
     public function create()
     {
         return view('content.create');

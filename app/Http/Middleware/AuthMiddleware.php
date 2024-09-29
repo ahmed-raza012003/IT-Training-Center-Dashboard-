@@ -17,10 +17,12 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        // Check if the user is authenticated
         if (!Auth::check()) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            // Redirect to the login page with an error message
+            return redirect()->route('login')->withErrors(['message' => 'You must be logged in to access that page.']);
         }
 
-        return $next($request);
+        return $next($request); // Continue to the next middleware or controller
     }
 }
