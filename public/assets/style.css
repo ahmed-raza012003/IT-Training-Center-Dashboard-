@@ -1,0 +1,244 @@
+* {
+    list-style: none;
+    text-decoration: none;
+}
+body
+{
+    font-family: 'Poppins';
+}
+
+a {
+    text-decoration: none;
+}
+
+.hero-head1 {
+    font-size: 62px;
+}
+
+.hero-head2 {
+    font-size: 62px;
+}
+
+#course_img {
+    height: 64px;
+    aspect-ratio: 1/1;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 370px !important;
+    background-color: #fff;
+    border-radius: 38px;
+    object-fit: cover;
+}
+
+.animet-text {
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.animet-text {
+    list-style: none;
+    color: #2c2c51;
+    font-size: 25px;
+    font-weight: 600;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(20) infinite;
+}
+
+
+  .dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+
+/* Styling for the submenu */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    display: none;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+
+
+/* Wordpress */
+
+
+/* wordpress theme bootstrap theme htmlcss theme responsive theme */
+.course-decription .course-right-section {
+    top: 10px;
+}
+
+.course-left-side .nav-tabs .nav-link.active {
+    background-color: #fff;
+}
+
+.nav-tabs .nav-link.active {
+    border-color: #fff;
+    border-bottom: 1.5px solid #754FFE;
+    color: #754FFE;
+}
+
+.course-decription li .nav-link {
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    border: none;
+    padding: 17px 0px 11px 0px;
+}
+
+.nav-tabs .nav-link.active {
+    color: #754FFE;
+}
+
+.course-decription li .nav-link:hover {
+    color: #754FFE !important;
+
+}
+
+ul.step-down .ll::before {
+    content: "";
+    position: absolute;
+    width: 1.5px;
+    height: calc(100% + 28px);
+    background-color: #754ffe58;
+    left: -14px;
+    top: 8px;
+}
+
+ul.step-down .ll:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #754FFE;
+    left: -18px;
+    top: 6px;
+}
+
+ul.step-down .li:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #754FFE;
+    left: -18px;
+    top: 6px;
+}
+
+.instructor .instructor-img img {
+    margin-bottom: 67px;
+}
+
+.ellipsis-line-2 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.instructor .instructor-icon i {
+    color: #000;
+    background-color: #fff;
+    width: 38px;
+}
+
+
+.instructor .instructor-icon i:hover {
+    background-color: #754FFE;
+    color: #fff;
+}
+
+
+
+.course-right-section .button a {
+    text-decoration: none;
+    background-color: #fff;
+    border: 1.5px solid #754FFE;
+    color: #754FFE;
+    text-align: center;
+    border-radius: 10px;
+    margin: 14px 30px 0px;
+    padding: 10px 14px 12px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.course-right-section .button a:hover {
+    background-color: #754FFE;
+    color: #fff;
+}
+
+@media only screen and (max-width: 991px) {
+    .course-decription .course-left-side {
+        margin-top: 35px !important;
+    }
+
+    .course-decription .course-right-section {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .course-card {
+        margin-top: 39px !important;
+    }
+}
+/* loginform */
+.sing-up-right i {
+    left: 18px;
+    top: 34%;
+}
+
+.sing-up-right .another h5::before {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 1.5px;
+    background-color: #6e798a72;
+    right: 0;
+    top: 50%;
+}
+
+.sing-up-right .another h5::after {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 1.5px;
+    background-color: #6e798a72;
+    left: 0;
+    top: 50%;
+}

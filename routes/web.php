@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
@@ -13,9 +14,9 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('login'); // Redirect to the dashboard
-})->middleware('auth.custom');
+// Route::get('/', function () {
+//     return redirect()->route('login'); // Redirect to the dashboard
+// })->middleware('auth.custom');
 
 // Dashboard Route
 Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -139,14 +140,15 @@ Route::delete('/instructors/{instructor}', [InstructorController::class, 'destro
 Route::get('/instructors/{instructor}', [InstructorController::class, 'show'])->name('instructors.show');
 
 
-// Staff Routes
+// Staff Routesuse App\Http\Controllers\StaffController;
+
 Route::get('/staff/create', [StaffController::class, 'create'])->name('staff.create');
-Route::post('/staff/create', [StaffController::class, 'store'])->name('staff.store');
+Route::post('/staff', [StaffController::class, 'store'])->name('staff.store');
 Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
-Route::get('/staff/{id}', [StaffController::class, 'show'])->name('staff.show');
-Route::get('/staff/{id}/edit', [StaffController::class, 'edit'])->name('staff.edit');
-Route::post('/staff/{id}/edit', [StaffController::class, 'update'])->name('staff.update');
-Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.destroy');
+Route::get('/staff/{id}', [StaffController::class, 'show'])->name('staff.show'); // Use id
+Route::get('/staff/{id}/edit', [StaffController::class, 'edit'])->name('staff.edit'); // Use id
+Route::put('/staff/{id}', [StaffController::class, 'update'])->name('staff.update'); // Use id
+Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.destroy'); // Use id
 
 
 
@@ -169,3 +171,24 @@ Route::get('/signup', [AuthController::class, 'showSignupForm'])->name('signup')
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+use App\Http\Controllers\FrontendController;
+
+// Route for the courses page
+Route::get('/course', [FrontendController::class, 'courses'])->name('courses');
+
+// Route for the index page
+Route::get('/', [FrontendController::class, 'index'])->name('index');
+
+// Route for the privacy policy page
+Route::get('/privacypolicy', [FrontendController::class, 'privacyPolicy'])->name('privacy-policy');
+
+// Route for the terms and conditions page
+Route::get('/terms-conditions', [FrontendController::class, 'termsConditions'])->name('terms-conditions');
+
+// Route for the blog details page
+Route::get('/blogdetails', [FrontendController::class, 'blogDetails'])->name('blogdetails');
+
+// Route for the WordPress details page
+Route::get('/wordpressdetails', [FrontendController::class, 'wordpressDetails'])->name('wordpressdetails');
+

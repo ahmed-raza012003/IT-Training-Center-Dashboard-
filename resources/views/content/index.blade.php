@@ -6,50 +6,54 @@
         <div class="container-fluid">
             <main class="nxl-container"> 
                 <div class="container mt-5">
-                    <h1 class="mb-4 text-center font-weight-bold">Admin Dashboard</h1>
- <!-- Cards Overview -->
- <div class="row mb-4">
-    <!-- Student Count Card -->
-    <div class="col-md-3 mb-3" onclick="location.href='{{ route('students.index') }}'">
-        <div class="card text-center shadow-lg bg-light rounded hover-card">
-            <div class="card-body">
-                <i class="fas fa-user-graduate fa-4x text-primary mb-2"></i>
-                <h5 class="card-title">Total Students</h5>
-                <h2 class="text-primary mt-1 counter" data-target="{{ $studentCount }}">0</h2>
-            </div>
-        </div>
-    </div>
-    <!-- Courses Count Card -->
-    <div class="col-md-3 mb-3" onclick="location.href='{{ route('courses.index') }}'">
-        <div class="card text-center shadow-lg bg-light rounded hover-card">
-            <div class="card-body">
-                <i class="fas fa-book fa-4x text-success mb-2"></i>
-                <h5 class="card-title">Total Courses</h5>
-                <h2 class="text-success mt-1 counter" data-target="{{ $courseCount }}">0</h2>
-            </div>
-        </div>
-    </div>
-    <!-- Staff Members Count Card -->
-    <div class="col-md-3 mb-3" onclick="location.href='{{ route('staff.index') }}'">
-        <div class="card text-center shadow-lg bg-light rounded hover-card">
-            <div class="card-body">
-                <i class="fas fa-chalkboard-teacher fa-4x text-warning mb-2"></i>
-                <h5 class="card-title">Total Staff Members</h5>
-                <h2 class="text-warning mt-1 counter" data-target="{{ $staffCount }}">0</h2>
-            </div>
-        </div>
-    </div>
-    <!-- Instructors Count Card -->
-    <div class="col-md-3 mb-3" onclick="location.href='{{ route('instructors.index') }}'">
-        <div class="card text-center shadow-lg bg-light rounded hover-card">
-            <div class="card-body">
-                <i class="fas fa-users fa-4x text-danger mb-2"></i>
-                <h5 class="card-title">Total Instructors</h5>
-                <h2 class="text-danger mt-1 counter" data-target="{{ $instructorCount }}">0</h2>
-            </div>
-        </div>
-    </div>
-</div>
+                    <h1 class="mb-4 text-center font-weight-bold">Dashboard</h1>
+
+                    <!-- Cards Overview -->
+                    <div class="row mb-4">
+                        <!-- Student Count Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card text-center shadow-lg bg-light rounded hover-card h-100" onclick="location.href='{{ route('students.index') }}'">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fas fa-user-graduate fa-4x text-primary mb-2"></i>
+                                    <h5 class="card-title">Total Students</h5>
+                                    <h2 class="text-primary mt-1 counter" data-target="{{ $studentCount }}">0</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Courses Count Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card text-center shadow-lg bg-light rounded hover-card h-100" onclick="location.href='{{ route('courses.index') }}'">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fas fa-book fa-4x text-success mb-2"></i>
+                                    <h5 class="card-title">Total Courses</h5>
+                                    <h2 class="text-success mt-1 counter" data-target="{{ $courseCount }}">0</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Staff Members Count Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card text-center shadow-lg bg-light rounded hover-card h-100" onclick="location.href='{{ route('staff.index') }}'">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fas fa-chalkboard-teacher fa-4x text-warning mb-2"></i>
+                                    <h5 class="card-title">Total Staff Members</h5>
+                                    <h2 class="text-warning mt-1 counter" data-target="{{ $staffCount }}">0</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Instructors Count Card -->
+                        <div class="col-md-3 mb-3">
+                            <div class="card text-center shadow-lg bg-light rounded hover-card h-100" onclick="location.href='{{ route('instructors.index') }}'">
+                                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                                    <i class="fas fa-users fa-4x text-danger mb-2"></i>
+                                    <h5 class="card-title">Total Instructors</h5>
+                                    <h2 class="text-danger mt-1 counter" data-target="{{ $instructorCount }}">0</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Student Enrollment Progress -->
                     <div class="row mb-3">
@@ -74,6 +78,7 @@
                                 <h2 class="text-center mb-4">Student Registrations Over Time</h2>
                                 <canvas id="studentsChart"></canvas>
                             </div>
+
                             <!-- Top Courses by Enrollment -->
                             <div class="card bg-light shadow-sm p-4 flex-fill mt-3">
                                 <h2 class="text-center mb-4">Top Courses by Enrollment</h2>
@@ -85,7 +90,6 @@
                                                     <i class="fas fa-book-open fa-3x text-primary mb-3"></i>
                                                     <h5 class="card-title font-weight-bold">{{ $course->name }}</h5>
                                                     <p class="card-text font-weight-bold">Enrolled Students: <span class="text-success">{{ $course->students_count }}</span></p>
-                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -156,7 +160,6 @@
         }
     });
 
-    // Donut Chart for Registrations in the Last 6 Months
     const registrationsCtx = document.getElementById('registrationsDonutChart').getContext('2d');
     const registrationsDonutChart = new Chart(registrationsCtx, {
         type: 'doughnut',
@@ -197,14 +200,11 @@
         }
     });
 
-    // Counter Animation
     const counters = document.querySelectorAll('.counter');
     counters.forEach(counter => {
         const updateCount = () => {
             const target = +counter.getAttribute('data-target');
             const count = +counter.innerText;
-
-            // Determine the increment
             const increment = Math.ceil(target / 100);
             if (count < target) {
                 counter.innerText = count + increment;
@@ -216,11 +216,14 @@
         updateCount();
     });
 </script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <style>
-     .card {
+    .card {
         border-radius: 15px;
         transition: all 0.3s ease;
+        height: 100%;
     }
 
     .hover-card:hover {
@@ -229,7 +232,7 @@
     }
 
     .card-body {
-        padding: 20px; /* Increase padding for a better layout */
+        padding: 20px;
     }
 
     h1, h2 {
@@ -238,18 +241,17 @@
 
     .card-title {
         font-weight: bold;
-        font-size: 1.2rem; /* Increased size for better readability */
+        font-size: 1.2rem;
     }
 
     h2 {
-        font-size: 2rem; /* Increased for better visibility */
+        font-size: 2rem;
         font-weight: bold;
     }
 
-  
     .progress {
         height: 40px;
-        border-radius: 25px; /* Rounded corners for progress bar */
+        border-radius: 25px;
     }
 
     .progress-bar {
@@ -258,24 +260,7 @@
         align-items: center;
         justify-content: center;
         transition: width 0.5s ease;
-        border-radius: 25px; /* Rounded corners for progress bar */
-    }
-
-
-    .display-4 {
-        font-size: 2rem;
-        font-weight: bold;
-    }
-
-    .list-group-item {
-        font-size: 1rem;
-        padding: 15px;
-        border: 1px solid #dee2e6; /* Light border for separation */
-    }
-
-    .badge {
-        font-size: 0.9rem;
-        padding: 8px;
+        border-radius: 25px;
     }
 </style>
 @endsection

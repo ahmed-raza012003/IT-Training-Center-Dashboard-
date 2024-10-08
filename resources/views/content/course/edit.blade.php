@@ -50,6 +50,26 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label for="details" class="form-label">Course Details</label>
+                                <textarea class="form-control" id="details" name="details">{{ old('details', $course->details) }}</textarea>
+                                @error('details')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <!-- New Image Upload field -->
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Course Image</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                                @if($course->image)
+                                    <div class="mt-2">
+                                        <img src="{{ asset('storage/' . $course->image) }}" alt="Course Image" style="width: 150px;">
+                                    </div>
+                                @endif
+                                @error('image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>

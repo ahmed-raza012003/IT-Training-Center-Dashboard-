@@ -13,6 +13,8 @@ class UpdateCourseRequest extends FormRequest
             'name' => 'required|string|max:255',
             'duration' => 'required|string',
             'outline' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
+            'details' => 'nullable|string', // Details validation
             'instructor' => 'required|string|max:255',
         ];
     }

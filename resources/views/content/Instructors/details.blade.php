@@ -12,12 +12,15 @@
                     <div class="row mb-4">
                         <div class="col-md-4 text-center">
                             @if ($instructor->profile_picture)
-                                <img src="{{ asset('storage/' . $instructor->profile_picture) }}" alt="Profile Picture" class="img-fluid rounded-circle" style="max-width: 200px;">
-                            @else
-                                <img src="{{ asset('assets/images/instructorpfp.png') }}" alt="Default Icon" class="img-fluid rounded-circle" style="max-width: 200px;">
-                            @endif
+                            <img src="{{ asset('storage/' . $instructor->profile_picture) }}" alt="Profile Picture" class="img-fluid rounded-circle" style="max-width: 200px;">
+                        @else
+                            <img src="{{ asset('assets/images/instructorpfp.png') }}" alt="Default Icon" class="img-fluid rounded-circle" style="max-width: 200px;">
+                        @endif
+                        
                         </div>
-
+                        <img src="{{ asset('storage/' . $instructor->profile_picture) }}" alt="{{ $instructor->name }}" class="img-fluid">
+                        <p>{{ asset('storage/' . $instructor->profile_picture) }}</p> <!-- This will output the image URL -->
+                        
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body">
@@ -36,7 +39,7 @@
                                             <p><strong>Bank Name:</strong> {{ $instructor->bank_name }}</p>
                                             <p><strong>Account Number:</strong> {{ $instructor->account_number }}</p>
                                             <p><strong>Technology:</strong> {{ $instructor->technology }}</p>
-                                            <p><strong>Course:</strong> {{ $instructor->course->name ?? 'N/A' }}</p> <!-- Updated to show course name -->
+                                            <p><strong>Course:</strong> {{ $instructor->course->name ?? 'N/A' }}</p>
                                         </div>
                                     </div>
                                 </div>

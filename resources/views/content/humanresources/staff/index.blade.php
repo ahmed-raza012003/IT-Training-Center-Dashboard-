@@ -1,5 +1,3 @@
-<!-- resources/views/staff/index.blade.php -->
-
 @extends('layouts.master')
 
 @section('body')
@@ -31,9 +29,7 @@
                                     <td>{{ $staff->id }}</td>
                                     <td><a href="{{ route('staff.show', $staff) }}">{{ $staff->name }}</a></td>
                                     <td>{{ $staff->phone }}</td>
-                                    <td>{{ $staff->emergency_contact }}</td>
-
-
+                                    <td>{{ $staff->emergency_phone }}</td>
                                     <td>{{ $staff->cnic }}</td>
                                     <td>{{ $staff->address }}</td>
                                     <td>{{ $staff->bank_name }}</td>
@@ -52,6 +48,9 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    <!-- Pagination links -->
+                    {{ $staffMembers->links() }}
                 </div>
             </main>
         </div>

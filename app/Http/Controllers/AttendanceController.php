@@ -100,6 +100,7 @@ class AttendanceController extends Controller
     public function index()
     {
         $attendances = Attendance::with('staff')->get(); // Fetch all attendance with staff details
-        return view('content.humanresources.attendance.index', compact('attendances'));
+        $staffMembers = StaffMember::all(); // Fetch all staff members for the form
+        return view('content.humanresources.attendance.index', compact('attendances', 'staffMembers')); // Pass both attendances and staff members to the view
     }
 }

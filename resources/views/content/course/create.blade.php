@@ -7,7 +7,7 @@
                 <main class="nxl-container"> 
                     <div class="container">
                         <h1>Create Course</h1>
-                        <form action="{{ route('courses.store') }}" method="POST">
+                        <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Course Name</label>
@@ -18,7 +18,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="batch_id" class="form-label">Batch</label>
-                                <select id="batch_id" name="batch_id" class="form-select" >
+                                <select id="batch_id" name="batch_id" class="form-select">
                                     @foreach ($batches as $batch)
                                         <option value="{{ $batch->id }}">{{ $batch->batch_number }}</option>
                                     @endforeach
@@ -36,7 +36,6 @@
                             </div>
                             <div class="mb-3">
                                 <label for="outline" class="form-label">Outline</label>
-                                <!-- TinyMCE Web Component -->
                                 <tinymce-editor
                                     id="outline"
                                     name="outline"
@@ -54,9 +53,27 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="instructor" class="form-label">Instructor</label>
-                                <input type="text" class="form-control" id="instructor" name="instructor" value="{{ old('instructor') }}" >
-                                @error('instructor')
+                                <label for="instructor_id" class="form-label">Instructor</label>
+                                <select id="instructor_id" name="instructor_id" class="form-select">
+                                    @foreach ($instructors as $instructor)
+                                        <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
+                                    @endforeach
+                                </select>
+                                @error('instructor_id')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="details" class="form-label">Course Details</label>
+                                <textarea class="form-control" id="details" name="details">{{ old('details') }}</textarea>
+                                @error('details')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Course Image</label>
+                                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                                @error('image')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>

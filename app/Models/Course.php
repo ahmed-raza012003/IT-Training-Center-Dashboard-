@@ -10,28 +10,23 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
-        'batch_id',
-        'name',
-        'duration',
-        'outline',
-        'instructor',
+        'name', 'batch_id', 'duration', 'outline', 'instructor_id', 'image', 'details' // Add 'image' and 'details'
     ];
 
     public function batch()
     {
         return $this->belongsTo(Batch::class);
     }
-
-    public function timings()
+    public function timing()
     {
         return $this->hasMany(Timing::class);
     }
-    public function instructors()
+    public function instructor()
     {
-        return $this->hasMany(Instructor::class);
-    }
-    public function students()
+        return $this->belongsTo(Instructor::class);
+    } public function students()
     {
         return $this->hasMany(Student::class);
     }
 }
+

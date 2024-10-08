@@ -16,7 +16,9 @@
                                     <th>Name</th>
                                     <th>Batch Number</th>
                                     <th>Duration</th>
-                                    <th>Outline</th>
+                                    {{-- <th>Outline</th> --}}
+                                    {{-- <th>Details</th> --}}
+                                    <th>Image</th>
                                     <th>Instructor</th>
                                     <th>Actions</th>
                                 </tr>
@@ -28,7 +30,15 @@
                                         <td>{{ $course->name }}</td>
                                         <td>{{ $course->batch->batch_number }}</td>
                                         <td>{{ $course->duration }}</td>
-                                        <td>{!! Str::limit(strip_tags($course->outline), 50) !!}</td>
+                                        {{-- <td>{!! Str::limit(strip_tags($course->outline), 50) !!}</td> --}}
+                                        {{-- <td>{{ Str::limit($course->details, 50) }}</td> --}}
+                                        <td>
+                                            @if($course->image)
+                                                <img src="{{ asset('storage/' . $course->image) }}" alt="Course Image" style="width: 50px;">
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
                                         <td>{{ $course->instructor }}</td>
                                         <td>
                                             <a href="{{ route('courses.edit', $course) }}" class="btn btn-warning" style="margin-right: 5px; display: inline-block; width: 70px;">Edit</a>

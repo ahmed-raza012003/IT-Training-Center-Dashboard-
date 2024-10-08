@@ -19,7 +19,6 @@ class StoreInstructorRequest extends FormRequest
             'account_number' => 'required|string|max:255',
             'course_id' => 'required|exists:courses,id', 
             'technology' => 'nullable|string|max:255',
-          
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
