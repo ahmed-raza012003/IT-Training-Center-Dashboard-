@@ -14,6 +14,7 @@ use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 
 
@@ -23,7 +24,7 @@ Route::post('/admission', [AdmissionController::class, 'store'])->name('admissio
 // Route::get('/', function () {
 //     return redirect()->route('login'); // Redirect to the dashboard
 // })->middleware('auth.custom');
-
+Route::middleware(['auth.custom'])->group(function () {
 // Dashboard Route
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
@@ -119,8 +120,10 @@ Route::get('/attendance', [AttendanceController::class, 'index'])->name('attenda
 
 // Route to store a new attendance record
 Route::post('/attendance', [AttendanceController::class, 'store'])->name('attendance.store');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-use App\Http\Controllers\AuthController;
+});
+
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -128,7 +131,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/signup', [AuthController::class, 'showSignupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 use App\Http\Controllers\FrontendController;
 

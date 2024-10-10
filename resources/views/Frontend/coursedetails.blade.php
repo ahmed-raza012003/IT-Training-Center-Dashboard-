@@ -80,7 +80,7 @@
     <div class="container shadow " style="border-radius: 40px;">
         <nav class="navbar navbar-expand-lg mt-5">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src={{asset('assets/images/logo.png')}} style="height: 45px;" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -95,7 +95,7 @@
                                 href="/">Home</a>
                         </li>
                         <div class="dropdown">
-                            <a href="courses.html">
+                            <a href="/course">
                                 <button data-mdb-button-init data-mdb-ripple-init data-mdb-dropdown-init
                                     class="btn dropdown-toggle text-black fw-bold" style="font-size: 16px;"
                                     type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
@@ -174,9 +174,10 @@
                         </li>
                     </ul>
                     <div>
-                        <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
-                            style="background-color: #EF7A15;">Get Started</button>
-                    </div>
+                        <a href="admission">    <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
+                                style="background-color: #EF7A15;">Get Started</button>
+                        
+                        </a>    </div>
                 </div>
 
             </div>

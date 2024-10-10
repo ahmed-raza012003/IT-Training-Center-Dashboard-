@@ -7,7 +7,6 @@ use App\Http\Requests\UpdateCourseRequest;
 use App\Services\CourseService;
 use App\Models\Course;
 use App\Models\Batch;
-use App\Models\Instructor;
 use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
@@ -28,8 +27,7 @@ class CourseController extends Controller
     public function create()
     {
         $batches = Batch::all();
-        $instructors = Instructor::all();
-        return view('content.course.create', compact('batches', 'instructors'));
+        return view('content.course.create', compact('batches'));
     }
 
     public function store(StoreCourseRequest $request)
@@ -48,8 +46,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $batches = Batch::all();
-        $instructors = Instructor::all();
-        return view('content.course.edit', compact('course', 'batches', 'instructors'));
+        return view('content.course.edit', compact('course', 'batches', ));
     }
 
     public function update(UpdateCourseRequest $request, Course $course)

@@ -52,17 +52,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label for="instructor" class="form-label">Instructor</label>
-                                <select id="instructor" name="instructor" class="form-select" required>
-                                    @foreach ($instructors as $instructor)
-                                        <option value="{{ $instructor->name }}">{{ $instructor->name }}</option>
-                                    @endforeach
-                                </select>
-                                @error('instructor')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+                           
                             <div class="mb-3">
                                 <label for="details" class="form-label">Course Details</label>
                                 <textarea class="form-control" id="details" name="details">{{ old('details') }}</textarea>

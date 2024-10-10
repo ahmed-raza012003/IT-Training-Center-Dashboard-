@@ -13,7 +13,6 @@ class StoreCourseRequest extends FormRequest
             'batch_id' => 'required|exists:batches,id',
             'duration' => 'required|integer',
             'outline' => 'required|string',
-            'instructor' => 'required|string',
             'details' => 'required|string',
             'lectures' => 'required|integer',
             'quizzes' => 'required|integer',
@@ -48,9 +47,6 @@ class StoreCourseRequest extends FormRequest
             'duration.string' => 'The duration must be a string.',
             'outline.required' => 'The course outline field is required.',
             'outline.string' => 'The course outline must be a string.',
-            'instructor.required' => 'The instructor field is required.',
-            'instructor.string' => 'The instructor name must be a string.',
-            'instructor.max' => 'The instructor name may not be greater than 255 characters.',
         ];
     }
 }

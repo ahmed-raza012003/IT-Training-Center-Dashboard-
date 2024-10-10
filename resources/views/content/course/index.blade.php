@@ -19,7 +19,7 @@
                                     {{-- <th>Outline</th> --}}
                                     {{-- <th>Details</th> --}}
                                     <th>Image</th>
-                                    <th>Instructor</th>
+                                   
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -39,7 +39,7 @@
                                                 N/A
                                             @endif
                                         </td>
-                                        <td>{{ $course->instructor }}</td>
+                                       
                                         <td>
                                             <a href="{{ route('courses.edit', $course) }}" class="btn btn-warning" style="margin-right: 5px; display: inline-block; width: 70px;">Edit</a>
                                             <form action="{{ route('courses.destroy', $course) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure?');">

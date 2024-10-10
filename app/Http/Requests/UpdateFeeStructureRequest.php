@@ -12,7 +12,6 @@ class UpdateFeeStructureRequest extends FormRequest
             'timing_id' => 'required|exists:timings,id',
             'main_fee' => 'required|numeric',
             'discount_fee' => 'required|numeric',
-            'final_fee' => 'required|numeric',
             'course_duration' => 'nullable|integer|min:1',
         ];
     }
