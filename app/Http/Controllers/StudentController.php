@@ -9,6 +9,7 @@ use App\Models\Batch;
 use App\Models\Course;
 use App\Models\Timing;
 use App\Models\FeeStructure;
+use App\Models\Instructor; // Include Instructor model
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Services\FeeSubmissionService;
@@ -28,12 +29,13 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = Student::with(['branch', 'batch', 'course', 'timing', 'feeStructure'])->paginate(10);
+        $students = Student::with(['branch', 'batch', 'course', 'timing', 'feeStructure', 'instructor'])->paginate(10);
         return view('content.student.index', compact('students'));
     }
+
     public function show($id)
     {
-        $student = Student::with(['installments', 'feeSubmissions'])->findOrFail($id);
+        $student = Student::with(['installments', 'feeSubmissions', 'instructor'])->findOrFail($id);
     
         // Get unpaid installments
         $installments = $student->installments()->where('is_paid', false)->get(); // Ensure this query is correct
@@ -41,11 +43,8 @@ class StudentController extends Controller
         // Get all fee submissions
         $feeSubmissions = $student->feeSubmissions;
     
-        return view('content.student.details', compact('student', 'installments', 'feeSubmissions'));
+        return view('content.student.details', compact('student', 'installments', 'feeSubmissions','instructor'));
     }
-    
-
-
 
     public function create()
     {
@@ -54,7 +53,8 @@ class StudentController extends Controller
         $courses = Course::all();
         $timings = Timing::all();
         $fees = FeeStructure::all();
-        return view('content.student.create', compact('branches', 'batches', 'courses', 'timings', 'fees'));
+        $instructors = Instructor::all(); // Get all instructors
+        return view('content.student.create', compact('branches', 'batches', 'courses', 'timings', 'fees', 'instructors'));
     }
 
     public function store(StoreStudentRequest $request)
@@ -81,7 +81,8 @@ class StudentController extends Controller
         $courses = Course::all();
         $timings = Timing::all();
         $fees = FeeStructure::all();
-        return view('content.student.edit', compact('student', 'branches', 'batches', 'courses', 'timings', 'fees'));
+        $instructors = Instructor::all(); // Get all instructors
+        return view('content.student.edit', compact('student', 'branches', 'batches', 'courses', 'timings', 'fees', 'instructors'));
     }
 
     public function update(UpdateStudentRequest $request, Student $student)

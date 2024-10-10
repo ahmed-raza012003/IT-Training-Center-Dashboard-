@@ -23,6 +23,8 @@ class UpdateStudentRequest extends FormRequest
             'emergency_contact' => 'required|string|max:20',
             'religion' => 'required|string|max:50',
             'status' => 'required|boolean',
+            'instructor_id' => 'nullable|exists:instructors,id', // Add this line for instructor
+
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }

@@ -9,16 +9,33 @@ class UpdateCourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'batch_id' => 'required|exists:batches,id',
             'name' => 'required|string|max:255',
-            'duration' => 'required|string',
+            'batch_id' => 'required|exists:batches,id',
+            'duration' => 'required|integer',
             'outline' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
-            'details' => 'nullable|string', // Details validation
-            'instructor' => 'required|string|max:255',
+            'instructor' => 'required|string',
+            'details' => 'required|string',
+            'lectures' => 'required|integer',
+            'quizzes' => 'required|integer',
+            'skill_level' => 'required|string|max:50',
+            'expiry_period' => 'required|string|max:50',
+            'certificate' => 'required|boolean',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'what_will_i_learn' => 'required|string',
+            'requirements' => 'required|string',
+
         ];
     }
 
+    public function prepareForValidation()
+    {
+        // Keep the input values as is without adding line breaks
+        $this->merge([
+            'what_will_i_learn' => strip_tags($this->what_will_i_learn), // Remove any HTML tags
+            'requirements' => strip_tags($this->requirements), // Remove any HTML tags
+        ]);
+    }
+    
     public function messages()
     {
         return [

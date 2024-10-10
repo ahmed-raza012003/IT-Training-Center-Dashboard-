@@ -43,6 +43,8 @@
                                                     N/A
                                                 @endif
                                             </p>
+                                            <p><strong>Instructor:</strong> {{ $student->instructor->name ?? 'N/A' }}</p>
+
                                             <p><strong>Father's Name:</strong> {{ $student->father_name }}</p>
                                             <p><strong>Address:</strong> {{ $student->address }}</p>
                                             <p><strong>Emergency Contact:</strong> {{ $student->emergency_contact }}</p>

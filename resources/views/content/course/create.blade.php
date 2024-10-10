@@ -28,7 +28,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="duration" class="form-label">Duration</label>
+                                <label for="duration" class="form-label">Duration (in Months)</label>
                                 <input type="text" class="form-control" id="duration" name="duration" value="{{ old('duration') }}" >
                                 @error('duration')
                                     <div class="text-danger">{{ $message }}</div>
@@ -53,13 +53,13 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="instructor_id" class="form-label">Instructor</label>
-                                <select id="instructor_id" name="instructor_id" class="form-select">
+                                <label for="instructor" class="form-label">Instructor</label>
+                                <select id="instructor" name="instructor" class="form-select" required>
                                     @foreach ($instructors as $instructor)
-                                        <option value="{{ $instructor->id }}">{{ $instructor->name }}</option>
+                                        <option value="{{ $instructor->name }}">{{ $instructor->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('instructor_id')
+                                @error('instructor')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -71,12 +71,57 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="lectures" class="form-label">Lectures</label>
+                                <input type="number" class="form-control" id="lectures" name="lectures" value="{{ old('lectures') }}" >
+                                @error('lectures')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="quizzes" class="form-label">Quizzes</label>
+                                <input type="number" class="form-control" id="quizzes" name="quizzes" value="{{ old('quizzes') }}" >
+                                @error('quizzes')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="skill_level" class="form-label">Skill Level</label>
+                                <input type="text" class="form-control" id="skill_level" name="skill_level" value="{{ old('skill_level') }}" >
+                                @error('skill_level')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="expiry_period" class="form-label">Expiry Period (Lifetime)</label>
+                                <input type="text" class="form-control" id="expiry_period" name="expiry_period" value="Lifetime" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="certificate" class="form-label">Certificate</label>
+                                <select id="certificate" name="certificate" class="form-select">
+                                    <option value="0" {{ old('certificate') == 0 ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ old('certificate') == 1 ? 'selected' : '' }}>Yes</option>
+                                </select>
+                                @error('certificate')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="image" class="form-label">Course Image</label>
                                 <input type="file" class="form-control" id="image" name="image" accept="image/*">
                                 @error('image')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label for="what_will_i_learn" class="form-label">What Will I Learn?</label>
+                                <textarea class="form-control" id="what_will_i_learn" name="what_will_i_learn">{{ old('learning_outcomes', $course->learning_outcomes ?? '') }}</textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="requirements" class="form-label">Requirements</label>
+                                <textarea class="form-control" id="requirements" name="requirements">{{ old('requirements', $course->requirements ?? '') }}</textarea>
+                            </div>
+                            
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
                     </div>
@@ -88,3 +133,4 @@
     <!-- Include TinyMCE Web Component Script -->
     <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-webcomponent@2/dist/tinymce-webcomponent.min.js"></script>
 @endsection
+

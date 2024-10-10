@@ -11,7 +11,8 @@ class FrontendController extends Controller
     // Courses page
     public function courses()
     {
-        return view('frontend.courses');
+        $courses = Course::with('batch')->paginate(10);
+        return view('frontend.courses',compact('courses'));
     }
 
     // Index page (Home)
@@ -27,6 +28,23 @@ class FrontendController extends Controller
     {
         return view('frontend.privacypolicy');
     }
+    public function coursedetails($id)
+    {
+        $course = Course::with('instructor')->findOrFail($id); // Fetch the course with the instructor relationship
+    
+        // Assuming these values are defined somewhere or can be derived from the course
+        $months = $course->duration; // Duration in months from the course model
+        $sessionsPerWeek = 2; // Number of sessions per week
+        $hoursPerSession = 2; // Duration of each session in hours
+        $weeksPerMonth = 4.33; // Average weeks in a month
+    
+        // Calculate total hours
+        $totalHours = $months * $weeksPerMonth * $sessionsPerWeek * $hoursPerSession;
+    
+        return view('frontend.coursedetails', compact('course', 'totalHours'));
+    }
+    
+    
 
     // Terms and Conditions page
     public function termsConditions()

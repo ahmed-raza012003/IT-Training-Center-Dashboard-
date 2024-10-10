@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Http\Requests\StoreInstructorRequest;
 use App\Http\Requests\UpdateInstructorRequest;
 use App\Services\InstructorService;
+use Illuminate\Support\Facades\Storage;
 
 class InstructorController extends Controller
 {
@@ -40,9 +41,9 @@ class InstructorController extends Controller
     {
         $data = $request->validated();
 
-        // Handle file upload separately if it exists
+        // Handle file upload if it exists
         if ($request->hasFile('profile_picture')) {
-            $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures');
+            $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures', 'public');
         }
 
         $this->instructorService->create($data);
@@ -60,9 +61,15 @@ class InstructorController extends Controller
     {
         $data = $request->validated();
 
-        // Handle file upload separately if it exists
+        // Handle file upload if it exists
         if ($request->hasFile('profile_picture')) {
-            $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures');
+            // Delete old profile picture if it exists
+            if ($instructor->profile_picture) {
+                Storage::disk('public')->delete($instructor->profile_picture);
+            }
+
+            // Store new profile picture and update path
+            $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures', 'public');
         }
 
         $this->instructorService->update($instructor, $data);
@@ -72,8 +79,12 @@ class InstructorController extends Controller
 
     public function destroy(Instructor $instructor)
     {
+        // Delete the profile picture if it exists
+        if ($instructor->profile_picture) {
+            Storage::disk('public')->delete($instructor->profile_picture);
+        }
+
         $this->instructorService->delete($instructor);
         return redirect()->route('instructors.index')->with('success', 'Instructor deleted successfully.');
     }
 }
-

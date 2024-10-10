@@ -12,8 +12,7 @@ class InstructorService
     {
         // Handle file upload if present and is an instance of UploadedFile
         if (isset($data['profile_picture']) && $data['profile_picture'] instanceof UploadedFile) {
-            $path = $data['profile_picture']->store('profile_pictures', 'public');
-            $data['profile_picture'] = $path;
+            $data['profile_picture'] = $data['profile_picture']->store('profile_pictures', 'public');
         }
 
         return Instructor::create($data);
@@ -29,8 +28,7 @@ class InstructorService
             }
 
             // Store new profile picture and update path
-            $path = $data['profile_picture']->store('profile_pictures', 'public');
-            $data['profile_picture'] = $path;
+            $data['profile_picture'] = $data['profile_picture']->store('profile_pictures', 'public');
         }
 
         return $instructor->update($data);

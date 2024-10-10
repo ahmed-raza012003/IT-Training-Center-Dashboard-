@@ -18,9 +18,7 @@
                         @endif
                         
                         </div>
-                        <img src="{{ asset('storage/' . $instructor->profile_picture) }}" alt="{{ $instructor->name }}" class="img-fluid">
-                        <p>{{ asset('storage/' . $instructor->profile_picture) }}</p> <!-- This will output the image URL -->
-                        
+                       
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body">

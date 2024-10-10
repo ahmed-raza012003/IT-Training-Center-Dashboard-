@@ -10,8 +10,9 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'batch_id', 'duration', 'outline', 'instructor_id', 'image', 'details' // Add 'image' and 'details'
+        'batch_id', 'name', 'duration', 'outline', 'instructor', 'what_will_i_learn', 'requirements', 'details', 'image', 'lectures', 'quizzes', 'skill_level', 'expiry_period', 'certificate'
     ];
+    
 
     public function batch()
     {

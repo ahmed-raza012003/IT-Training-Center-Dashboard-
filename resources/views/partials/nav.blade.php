@@ -233,15 +233,15 @@
                     </div>
                 </div>
             </div>
-            <div class="simplebar-placeholder" style="width: auto; height: 1661px;"></div>
+            {{-- <div class="simplebar-placeholder" style="width: auto; height: 1661px;"></div> --}}
         </div>
-        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+        {{-- <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
             <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
-        </div>
-        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+        </div> --}}
+        {{-- <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
             <div class="simplebar-scrollbar"
                 style="height: 25px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
-        </div>
+        </div> --}}
     </div>
 </div>
 <script>

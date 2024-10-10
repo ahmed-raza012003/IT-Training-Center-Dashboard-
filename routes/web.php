@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\CourseController;
@@ -14,6 +15,11 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
+
+
+Route::get('/admission', [AdmissionController::class, 'create'])->name('admission.create');
+Route::post('/admission', [AdmissionController::class, 'store'])->name('admission.store');
+
 // Route::get('/', function () {
 //     return redirect()->route('login'); // Redirect to the dashboard
 // })->middleware('auth.custom');
@@ -22,57 +28,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard')
     ->middleware('auth.custom'); // Protect this route
-// Content Routes
-Route::get('/create', [DashboardController::class, 'create'])->name('create');
-Route::post('/create', [DashboardController::class, 'store'])->name('store');
-Route::get('/list', [DashboardController::class, 'list'])->name('list');
-Route::get('/edit/{id}', [DashboardController::class, 'edit'])->name('edit');
-Route::post('/edit/{id}', [DashboardController::class, 'update'])->name('update');
 
-// Category Routes
-Route::get('/category/create', [DashboardController::class, 'catagory_create'])->name('category_create');
-Route::post('/category/create', [DashboardController::class, 'category_store'])->name('category_store');
-Route::get('/category/list', [DashboardController::class, 'catagory_list'])->name('category_list');
-Route::get('/category/edit/{id}', [DashboardController::class, 'catagory_edit'])->name('category_edit');
-Route::post('/category/edit/{id}', [DashboardController::class, 'category_update'])->name('category_update');
-
-// Inventory Routes
-Route::get('/warehouse', [DashboardController::class, 'warehouse'])->name('warehouse');
-Route::get('/receivedorders', [DashboardController::class, 'receivedorders'])->name('receivedorders');
-
-// Order Routes
-Route::get('/order/list', [DashboardController::class, 'order_list'])->name('order_list');
-Route::get('/order/cart', [DashboardController::class, 'order_cart'])->name('order_cart');
-Route::get('/order/checkout', [DashboardController::class, 'order_checkout'])->name('order_checkout');
-
-// Purchase Routes
-Route::get('/purchases/list', [DashboardController::class, 'purchases_list'])->name('purchases_list');
-Route::get('/purchases/order', [DashboardController::class, 'purchases_order'])->name('purchases_order');
-Route::get('/purchases/return', [DashboardController::class, 'purchases_return'])->name('purchases_return');
-
-// Attribute Routes
-Route::get('/attributes/create', [DashboardController::class, 'attributes_create'])->name('attributes_create');
-Route::post('/attributes/create', [DashboardController::class, 'attributes_store'])->name('attributes_store');
-Route::get('/attributes/list', [DashboardController::class, 'attributes_list'])->name('attributes_list');
-Route::get('/attributes/edit/{id}', [DashboardController::class, 'attributes_edit'])->name('attributes_edit');
-Route::post('/attributes/edit/{id}', [DashboardController::class, 'attributes_update'])->name('attributes_update');
-
-// Invoice Routes
-Route::get('/invoices/create', [DashboardController::class, 'invoices_create'])->name('invoices_create');
-Route::post('/invoices/create', [DashboardController::class, 'invoices_store'])->name('invoices_store');
-Route::get('/invoices/list', [DashboardController::class, 'invoices_list'])->name('invoices_list');
-Route::get('/invoices/details/{id}', [DashboardController::class, 'invoices_details'])->name('invoices_details');
-
-// Profile Routes
-Route::get('/profile/profile', [DashboardController::class, 'profile_profile'])->name('profile_profile');
 
 // Role Routes
-Route::get('/roles/create', [DashboardController::class, 'roles_create'])->name('roles_create');
-Route::post('/roles/create', [DashboardController::class, 'roles_store'])->name('roles_store');
-Route::get('/roles/list', [DashboardController::class, 'roles_list'])->name('roles_list');
-Route::get('/roles/edit/{id}', [DashboardController::class, 'roles_edit'])->name('roles_edit');
-Route::post('/roles/edit/{id}', [DashboardController::class, 'roles_update'])->name('roles_update');
-// Branch Routes
 Route::get('/branches', [BranchController::class, 'index'])->name('branches.index');
 Route::get('/branches/create', [BranchController::class, 'create'])->name('branches.create');
 Route::post('/branches', [BranchController::class, 'store'])->name('branches.store');
@@ -182,6 +140,9 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 
 // Route for the privacy policy page
 Route::get('/privacypolicy', [FrontendController::class, 'privacyPolicy'])->name('privacy-policy');
+Route::get('/coursedetails', [FrontendController::class, 'coursedetails'])->name('coursedetails');
+// Route for showing course details
+Route::get('/courses/{id}', [FrontEndController::class, 'coursedetails'])->name('courses.show');
 
 // Route for the terms and conditions page
 Route::get('/terms-conditions', [FrontendController::class, 'termsConditions'])->name('terms-conditions');

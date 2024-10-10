@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/itcfavicon.png" type="image/x-icon" style="width: 15px;">
+    <link rel="shortcut icon" href="{{ asset('assets/images/itcfavicon.png')}}" type="image/x-icon" style="width: 15px;">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 
-    <link rel="stylesheet" href={{ asset('assets/style.css')}}>
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
 </head>
 
 <body>
@@ -78,8 +78,8 @@
     <div class="container shadow " style="border-radius: 40px;">
         <nav class="navbar navbar-expand-lg mt-5">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="images/logo.png" style="height: 45px;" alt="">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ asset('assets/images/logo.png') }}" style="height: 45px;" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -89,10 +89,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link ps-3 text-black fw-bold" style="font-size: 16px;" href="index.html">Home</a>
+                            <a class="nav-link ps-3 text-black fw-bold" style="font-size: 16px;" href="/">Home</a>
                         </li>
                         <div class="dropdown">
-                            <a href="courses.html">
+                            <a href="/course">
                                 <button data-mdb-button-init data-mdb-ripple-init data-mdb-dropdown-init
                                     class="btn dropdown-toggle text-black fw-bold" style="font-size: 16px;"
                                     type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
@@ -171,8 +171,8 @@
                         </li>
                 </div>
                 <div>
-                    <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
-                        style="background-color: #EF7A15;">Get Started</button>
+                   <a href="/admission"> <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
+                        style="background-color: #EF7A15;">Get Started</button></a>
                 </div>
             </div>
         </nav>
@@ -202,14 +202,14 @@
                     </p>
                 </div>
                 <div>
-                    <button class="pt-2 pb-2 ps-3 pe-3 border-0 text-light rounded mt-3"
-                        style="background-color: #EF7A15;">Get Started</button>
+                    <a href="/admission">  <button class="pt-2 pb-2 ps-3 pe-3 border-0 text-light rounded mt-3"
+                        style="background-color: #EF7A15;">Get Started</button></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-12 col-12">
                 <div>
-                    <img src="{{ asset('assets/images/herosec.png') }}" style="position: relative; z-index: 999;" class="img-fluid" alt="itworkbanner">
-
+                    <img src="{{ asset('assets/images/herosec.png')}}" style="position: relative; z-index: 999;" class="img-fluid"
+                        alt="itworkbanner">
                 </div>
                 <!-- <div>
                     <img src="Dots.png" style="height: 170px; position: absolute;   bottom: 43px;" alt="">
@@ -218,70 +218,6 @@
         </div>
     </div>
 
-    <!-- Hero Section Ended -->
-    <!-- About Us Section Started  -->
-    <!-- 
-    <section class="ep-about ep-section section-gap position-relative mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <div>
-                        <div id="aboutbackimg">
-                            <img src="images/about_img.png" alt="about-img">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div>
-                        <div class="mb-4 mt-2">
-                            <span class="fw-bold" style="color: #EF7A15; font-size: 18px;">Know About Us</span>
-                            <h1 class="mt-3">
-                                Unlocking the <span class="ps-3 pe-3 pt-0 pb-1"
-                                    style="background-color: #fec961; border-radius: 45px;">Power</span> <br>
-                                of Knowledge
-                            </h1>
-                            <p class="mt-4" style="color: #4f536c; font-size: 15px;">
-                                Et purus duis sollicitudin dignissim habitant. Egestas
-                                nulla quis venenatis cras sed eu massa eu faucibus. Urna
-                                fusce aenean tortor pretium. Ac
-                            </p>
-                        </div>
-                        <div class="d-flex" style="gap: 20px;">
-                            <div class="ep-feature-list">
-                                <img src="images/abouttick.png" height="24px" alt="">
-                            </div>
-                            <div class="ep-feature-list__info">
-                                <h3 style="font-size: 20px;">Ignite your passion for learning</h3>
-                                <p style="color: #4f536c; font-size: 15px;">
-                                    Et purus duis sollicitudin dignissim habitant.
-                                    Egestas nulla quis venenatis cras sed eu massa eu
-                                    faucibus.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="d-flex" style="gap: 20px;">
-                            <div class="ep-feature-list__icon">
-                                <img src="images/abouttick.png" height="24px" alt="">
-                            </div>
-                            <div class="ep-feature-list__info">
-                                <h3 style="font-size: 20px;">Discover the joy of lifelong learning</h3>
-                                <p style="font-size: 15px;">
-                                    Et purus duis sollicitudin dignissim habitant.
-                                    Egestas nulla quis venenatis cras sed eu massa eu
-                                    faucibus.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="text-uppercase mt-5 pt-3 pb-3 ps-4 pe-4"
-                            style="outline: none; border: 1px solid; border-radius: 45px;">read more</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section> -->
 
 
     <section class="ep-about ep-section section-gap position-relative mt-5">
@@ -292,8 +228,8 @@
 
                     <div
                         class="d-flex justify-content-lg-start justify-content-md-start justify-content-sm-stacenterrt ">
-                        <img src="{{ asset('assets/images/about_img.png') }}" style="position: relative; z-index: 999;" class="img-fluid" alt="itworkbanner">
-
+                        <img src="{{ asset('assets/images/about_img.png')}}" style="position: relative; z-index: 999;" class="img-fluid"
+                            alt="itworkbanner">
                     </div>
 
                     <!-- <div>
@@ -319,7 +255,7 @@
                         </div>
                         <div class="d-flex" style="gap: 20px;">
                             <div class="ep-feature-list">
-                                <img src="{{ asset('assets/images/abouttick.png') }}" height="24px" alt="">
+                                <img src="{{ asset('assets/images/abouttick.png')}}" height="24px" alt="">
                             </div>
                             <div class="ep-feature-list__info">
                                 <h3 style="font-size: 20px;">Ignite your passion for learning</h3>
@@ -332,7 +268,7 @@
                         </div>
                         <div class="d-flex" style="gap: 20px;">
                             <div class="ep-feature-list__icon">
-                                <img src="{{ asset('assets/images/abouttick.png') }}" height="24px" alt="">
+                                <img src="{{ asset('assets/images/abouttick.png')}}" height="24px" alt="">
                             </div>
                             <div class="ep-feature-list__info">
                                 <h3 style="font-size: 20px;">Discover the joy of lifelong learning</h3>
@@ -366,7 +302,7 @@
                         <h4 class="title fs-1 fw-bold pt-5">Explore Our <span style="color: #EF7A15;">Upcoming</span>
                             <span class="title fs-1 fw-bold animet-text" style="color: #228B22;"> Courses</span>
                         </h4>
-                        <!-- <h4 >Courses</h4> -->
+                        {{-- <!-- <h4 >Courses</h4> --> --}}
                     </div>
 
                 </div>
@@ -387,16 +323,14 @@
                     <div class="row g-3">
                         @foreach ($courses as $course)
                             <div class="col-lg-4 col-md-6 col-sm-6">
-                                <a href="#" id="top_course_{{ $course->id }}" class="course-item-one d-block position-relative rounded-4 shadow">
+                                <a href="{{ route('courses.show', $course->id) }}" id="top_course_{{ $course->id }}" class="course-item-one d-block position-relative rounded-4 shadow">
                                     <div class="">
                                         <div class="img">
-                                            <img loading="lazy" src="{{ asset('storage/' . $course->image) }}" style="height: 240px;" alt="{{ $course->name }}"
-                                                class="object-fit-cover rounded-4 w-100 course_cards">
+                                            <img loading="lazy" src="{{ asset('storage/' . $course->image) }}" style="height: 240px;" alt="{{ $course->name }}" class="object-fit-cover rounded-4 w-100 course_cards">
                                         </div>
                                     </div>
                                     <!-- Overlay at the bottom -->
-                                    <div class="position-absolute bottom-0 w-100 rounded-4 rounded-top-0"
-                                        style="background: linear-gradient(90deg, #EF7A15, #F06B10, #F58A3E); padding: 10px;">
+                                    <div class="position-absolute bottom-0 w-100 rounded-4 rounded-top-0" style="background: linear-gradient(90deg, #EF7A15, #F06B10, #F58A3E); padding: 10px;">
                                         <div class="text-center">
                                             <span class="text-white fs-6">{{ $course->name }}</span>
                                         </div>
@@ -407,7 +341,6 @@
                     </div>
                 </div>
             </div>
-            
             
         </div>
     </section>
@@ -427,203 +360,190 @@
                         Your Learning</h1>
                 </div>
             </div>
-           <div class="category-product mt-2">
-    <div class="row justify-content-center">
-        <!-- 1st -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/htmlcss.jpg') }}" id="course_img" alt="">
+            <div class="category-product mt-2">
+                
+                <section class="container-fluid bg-color">
+                    <style>
+                 
+                        .course-card {
+                            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; /* Shadow effect for the card */
+                        }
+                    </style>
+                    
+                    <div class="row justify-content-center">
+                        <!-- 1st -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/htmlcss.jpg')}}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">HTML &amp; CSS</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 2nd -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/illustrator.jpg') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Illustrator</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 3rd -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/photoshop.jpg') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Photoshop</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 4th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/i4.jpg') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">WordPress</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 5th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/lervel-01-01.png') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Laravel</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 6th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/Net-01.png') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Dot Net</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 7th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/figmaaa.png') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Figma</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 8th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/premiusrpro.png') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Premiur Pro</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 9th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/aftereffects.png') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">After Effects</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 10th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/i9.jpg') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Social Media</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 11th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/mobiledesign.jpg') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Mobile App</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- 12th -->
+                        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5" data-wow-duration="1000" data-wow-delay="600">
+                            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4 course-card">
+                                <div class="justify-content-center">
+                                    <div class="cate-image text-center rounded-4">
+                                        <img src="{{ asset('assets/images/i10.jpg') }}" id="course_img" alt="" class="course-image">
+                                    </div>
+                                    <div class="eText mt-4">
+                                        <h5 class="pt-0 fs-6 fw-semibold text-black">Bootstrap</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">HTML &amp; CSS</h5>
-                    </div>
-                </div>
+                </section>
+                
+                
+                
             </div>
-        </div>
-
-        <!-- 2nd -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/illustrator.jpg') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">Illustrator</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3rd -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/photoshop.jpg') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">Photoshop</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/i4.jpg') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">WordPress</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/lervel-01-01.png') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">Laravel</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 6th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/Net-01.png') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">Dot Net</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 7th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/figmaaa.png') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">Figma</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 8th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/premiusrpro.png') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">Premiur Pro</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 9th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/aftereffects.png') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-black">After Effects</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 10th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/i9.jpg') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-center text-black">Social Media</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 11th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/mobiledesign.jpg') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-center text-black">Mobile App</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 12th -->
-        <div class="col-lg-2 col-md-3 col-sm-6 col-6 wow animate__animated animate__fadeIn mb-5"
-            data-wow-duration="1000" data-wow-delay="600">
-            <div class="bg-white d-flex justify-content-center pt-4 pb-4 rounded-4"
-                style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                <div class="justify-content-center">
-                    <div class="cate-image text-center rounded-4">
-                        <img src="{{ asset('assets/images/i10.jpg') }}" id="course_img" alt="">
-                    </div>
-                    <div class="eText mt-4">
-                        <h5 class="pt-0 fs-6 fw-semibold text-center text-black">Bootstrap</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
         </div>
     </section>
 
@@ -631,75 +551,84 @@
     <!-- Our Expert Instructor Started -->
 
     <section
-        class="expert-instructor eExpert-instruction top-categories py-5 wow  animate__animated animate__fadeInUp opacityOnUp"
-        data-wow-duration="1000" data-wow-delay="400">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
-                    <div>
-                        <p class=" f-36 mt-0 pt-0 mb-0" style="color: #EF7A15; font-weight: 500; font-size: 20px;">Our
-                            Mentor</p>
-                        <h1 class="mt-4 mb-5 fw-bold ">
-                            Meet Our <span class="ps-3 pe-3 pt-0 pb-1"
-                                style="background-color: #fec961; border-radius: 45px;">Inspiring</span><br>
-                            Dedicated Mentor
-                        </h1>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-sm-start "
-                    style="align-items: center;">
-                    <div class="d-flex justify-content-center " style="align-items: center;">
-                        <button class="border-0 text-light  mt-3 mb-3"
-                            style="background-color: #EF7A15;padding: 18px 26px; border-radius: 42px;">Get
-                            Started</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row"> 
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        @foreach($instructors as $instructor)
-                            <div class="swiper-slide">
-                                <img src="{{ asset('storage/' . $instructor->profile_picture) }}" alt="{{ $instructor->name }}">
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
+    class="expert-instructor eExpert-instruction top-categories py-5 wow animate__animated animate__fadeInUp opacityOnUp"
+    data-wow-duration="1000" data-wow-delay="400">
+    {{-- <style>
+        .instructor-img {
+            max-height: 500px; /* Adjust the maximum height as needed */
+            width: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the area while maintaining aspect ratio */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+    
+        /* Optionally adjust the swiper-slide size */
+        .swiper-slide {
+            display: flex; /* Ensure the slide centers the image */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+    </style> --}}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div>
+                    <p class="f-36 mt-0 pt-0 mb-0" style="color: #EF7A15; font-weight: 500; font-size: 20px;">Our Mentor</p>
+                    <h1 class="mt-4 mb-5 fw-bold">
+                        Meet Our <span class="ps-3 pe-3 pt-0 pb-1" style="background-color: #fec961; border-radius: 45px;">Inspiring</span><br>
+                        Dedicated Mentor
+                    </h1>
                 </div>
             </div>
-            
-                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-                <script>
-                    var swiper = new Swiper(".mySwiper", {
-                        slidesPerView: 1,
-                        loop: true,
-                        breakpoints: {
-                            480: {
-                                slidesPerView: 1
-                            },
-                            767: {
-                                slidesPerView: 2
-                            },
-                            1024: {
-                                slidesPerView: 3
-                            },
-                            1366: {
-                                slidesPerView: 4
-                            }
-                        },
-                        spaceBetween: 20,
-                        autoplay: true
-                    });
-                </script>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-sm-start"
+                style="align-items: center;">
+                <div class="d-flex justify-content-center" style="align-items: center;">
+                   <a href="/admission"> <button class="border-0 text-light mt-3 mb-3"
+                        style="background-color: #EF7A15;padding: 18px 26px; border-radius: 42px;">Get Started</button>
+                    </a>  </div>
             </div>
         </div>
-
-
-
+        <div class="row">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    @foreach ($instructors as $instructor)
+                        <div class="swiper-slide">
+                            <img src="{{ asset('storage/' . $instructor->profile_picture) }}" alt="{{ $instructor->name }}" class="instructor-img">
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            loop: true,
+            breakpoints: {
+                480: {
+                    slidesPerView: 1
+                },
+                767: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                },
+                1366: {
+                    slidesPerView: 4
+                }
+            },
+            spaceBetween: 20,
+            autoplay: true
+        });
+    </script>
+</section>
+
 
     <!-- Our Expert Instructor Ended -->
     <!-- Frequently Asked Questions Started -->
@@ -708,10 +637,10 @@
 
         <div class="container">
             <div class="row mt-5 mb-5">
-                <div class="col-3 col-md-3 col-sm-6 col-6">
+                <div class="col-3 col-md-3 col-sm-6 col-6 ">
                     <div>
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/faqs1.png') }}" alt="">
+                            <img src="{{asset ('assets/images/faqs1.png') }}" alt="">
                         </div>
                         <h1 class="text-center mt-4">
                             14<b>+</b>
@@ -722,7 +651,7 @@
                 <div class="col-3 col-md-3 col-sm-6 col-6">
                     <div>
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/faqs2.png') }}" alt="">
+                            <img src="{{asset ('assets/images/faqs2.png')}}" alt="">
                         </div>
                         <h1 class="text-center mt-4">
                             14<b>+</b>
@@ -733,18 +662,18 @@
                 <div class="col-3 col-md-3 col-sm-6 col-6">
                     <div>
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/faqs3.png') }}" alt="">
+                            <img src="{{asset ('assets/images/faqs3.png')}}" alt="">
                         </div>
                         <h1 class="text-center mt-4">
                             14<b>+</b>
                         </h1>
-                        <p class="text-center" style="color: #4f536c;">Happy Customer</p>
+                        <p class="text-center" style="color: #4f536c;">Happy Coustomer</p>
                     </div>
                 </div>
                 <div class="col-3 col-md-3 col-sm-6 col-6">
                     <div>
                         <div class="text-center">
-                            <img src="{{ asset('assets/images/faqs4.png') }}" alt="">
+                            <img src="{{asset ('assets/images/faqs4.png')}}" alt="">
                         </div>
                         <h1 class="text-center mt-4">
                             14<b>+</b>
@@ -759,7 +688,7 @@
                         style="border-radius: 20px; box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.05);">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 text-center">
-                                <img src="{{ asset('assets/images/faqimg.png') }}" class="img-fluid p-5" alt="">
+                                <img src="{{asset ('assets/images/faqimg.png')}}" class="img-fluid p-5" alt="">
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="p-5">
@@ -772,6 +701,7 @@
                                     </h2>
                                 </div>
                                 <div class="accordion p-5 pt-0" id="educationAccordion">
+
                                     <div class="accordion-item rounded-4 mb-3 p-1"
                                         style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                         <h2 class="accordion-header rounded-4" id="headingOne">
@@ -791,7 +721,7 @@
                                             </div>
                                         </div>
                                     </div>
-        
+
                                     <div class="rounded-4 mb-3 p-1"
                                         style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                         <h2 class="accordion-header rounded-4" id="headingTwo">
@@ -810,7 +740,7 @@
                                             </div>
                                         </div>
                                     </div>
-        
+
                                     <div class="rounded-4 p-1 mb-3"
                                         style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                         <h2 class="accordion-header" id="headingThree">
@@ -829,7 +759,7 @@
                                             </div>
                                         </div>
                                     </div>
-        
+
                                 </div>
                             </div>
                         </div>
@@ -837,79 +767,9 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
-    <!-- Frequently Asked Questions Ended -->
-    <!-- Our Latest Blogs Started  -->
-
-    <!-- <div class="container" style="position: relative; top: 320px;">
-        <div class="row">
-            <div class="col-3 col-md-12 col-sm-12 mb-3">
-                <div
-                    style="background-image: url(images/graphicblog.jpg); height: 300px; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; border-radius: 25px;">
-                    <div class="d-flex justify-content-end" style="position: relative; top: 18px; right: 20px;">
-                        <div class=""
-                            style="float: end; height: 30px; width: 30px; background-color: white; border-radius: 30px; display: flex; justify-content: center; align-items: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
-                                    <path stroke-miterlimit="10" d="M17.657 6.343L6.343 17.657" />
-                                    <path stroke-linejoin="round"
-                                        d="M18.101 16.733V7.437A1.53 1.53 0 0 0 16.563 5.9H7.267" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <span class="fw-bold ms-2 mb-0 p-2 text-light"
-                        style="font-size: 16px; border-radius: 20px; position: relative; top: 18px; background-color: #EF7A15;">
-                        Graphic Designing
-                    </span>
-                    <p class="fw-bold ms-2 mt-4 " style="font-size: 18px;">
-                        Master Creativity Through The Art Of Design.
-                    </p>
-                </div>
-            </div>
-            <div class="col-6 col-md-12 col-sm-12 mb-3">
-                <div
-                    style="background-image: url(images/border2.png); height: 380px; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%;">
-                    <h1 class="pt-2 fw-bold" style="font-size: 27px; text-align: end; ">Mastering Modern <span
-                            style="color: #EF7A15;">Web</span> </h1>
-                    <h1 class="pt-2 fw-bold" style="font-size: 22px; text-align: end; color: #EF7A15;">Development</h1>
-                </div>
-            </div>
-
-            <div class="col-3 col-md-12 col-sm-12 mb-3">
-                <div
-                    style="background-image: url(images/digital_marketing.jpg); height: 300px; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; border-radius: 25px;">
-
-                    <div class="d-flex justify-content-end" style="position: relative; top: 18px; right: 20px;">
-                        <div class=""
-                            style="float: end; height: 30px; width: 30px; background-color: white; border-radius: 30px; display: flex; justify-content: center; align-items: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
-                                    <path stroke-miterlimit="10" d="M17.657 6.343L6.343 17.657" />
-                                    <path stroke-linejoin="round"
-                                        d="M18.101 16.733V7.437A1.53 1.53 0 0 0 16.563 5.9H7.267" />
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-
-                </div>
-                <div>
-                    <span class="fw-bold ms-2 mb-0 p-2 text-light"
-                        style="font-size: 16px; border-radius: 20px; position: relative; top: 18px; background-color: #EF7A15;">
-                        Social Media Marketing
-                    </span>
-                    <p class="fw-bold ms-2 mt-4 " style="font-size: 18px;">
-                        Unlock the Power of Social Media Marketing
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
 
 
 
@@ -924,14 +784,12 @@
             <div class="row eStudent">
                 <div class="col-lg-6   wow  ">
                     <div class=" mb-5  student-body-1 py-4 rounded-4 "
-                 style="background-image: url('{{ asset('assets/images/join_card1.jpg') }}'); background-size: cover;">
-                       
-                                            <div class="row">
+                    style="background-image: url({{ asset('assets/images/join_card1.jpg') }}); background-size: cover;">                        <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12">
                                 <div class="student-body-text  position-relative px-5 " style=" height: 220px;">
                                     <h1 class="fs-2 fw-medium text-white">Join now to start learning</h1>
                                     <p class="fs-6 fw-light my-4 text-white">Learn from our quality instructors! </p>
-                                    <a href="#" class=" btn border fw-bolder px-5 py-2 rounded-3 text-decoration-none"
+                                    <a href="/admission" class=" btn border fw-bolder px-5 py-2 rounded-3 text-decoration-none"
                                         style=" background-color: #fff;color: #1E293B;">Get started</a>
                                 </div>
                             </div>
@@ -942,7 +800,8 @@
                 </div>
                 <div class="col-lg-6  wow  ">
                     <div class="student-body-2 py-4 rounded-4"
-                    style="background-image: url('{{ asset('assets/images/join_card2.jpg') }}'); background-size: cover;">                        <div class="row">
+                    style="background-image: url({{ asset('assets/images/join_card2.jpg') }}); background-size: cover;">                        <div class="row">
+                        <div class="row">
                             <div class="col-lg-8  col-md-8 col-sm-12">
                                 <div class="student-body-text  position-relative px-5 " style=" height: 220px;">
                                     <h1 class="fs-2 fw-medium text-white">Become a new instructor</h1>
@@ -970,7 +829,8 @@
                 <div
                     class="col-lg-3 col-md-6 col-sm-12 col-12 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-start mb-3">
                     <div>
-                        <img loading="lazy" src="{{ asset('assets/images/footlogo.png') }}" style="height: 40px;" alt="Footer Logo">
+                        <img loading="lazy" src="{{ asset('assets/images/footlogo.png') }}" style="height: 40px;">
+
                         <p class="mt-5" style="color: #fff; font-size: 17px;">
                             Readers lose focus without clear, <br> engaging content.
                         </p>
@@ -1114,9 +974,7 @@
     <!-- Footer Section Ended -->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 

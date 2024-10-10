@@ -6,8 +6,10 @@
         <div class="container-fluid">
             <main class="nxl-container"> 
                 <div class="container">
+                    <h2>Create New Student</h2>
                     <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        
                         <div class="mb-3">
                             <label for="branch_id" class="form-label">Branch</label>
                             <select id="branch_id" name="branch_id" class="form-select @error('branch_id') is-invalid @enderror">
@@ -20,6 +22,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="batch_id" class="form-label">Batch</label>
                             <select id="batch_id" name="batch_id" class="form-select @error('batch_id') is-invalid @enderror">
@@ -32,6 +35,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="course_id" class="form-label">Course</label>
                             <select id="course_id" name="course_id" class="form-select @error('course_id') is-invalid @enderror">
@@ -44,6 +48,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="timing_id" class="form-label">Timing</label>
                             <select id="timing_id" name="timing_id" class="form-select @error('timing_id') is-invalid @enderror">
@@ -56,6 +61,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="fee_structure_id" class="form-label">Fee Structure</label>
                             <select id="fee_structure_id" name="fee_structure_id" class="form-select @error('fee_structure_id') is-invalid @enderror">
@@ -68,6 +74,20 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label for="instructor_id" class="form-label">Instructor</label>
+                            <select id="instructor_id" name="instructor_id" class="form-select @error('instructor_id') is-invalid @enderror">
+                                <option value="">Select an instructor</option>
+                                @foreach ($instructors as $instructor)
+                                    <option value="{{ $instructor->id }}" {{ old('instructor_id') == $instructor->id ? 'selected' : '' }}>{{ $instructor->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('instructor_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
                         <div class="mb-3">
                             <label for="name" class="form-label">Student Name</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
@@ -75,6 +95,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
                             <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}">
@@ -82,6 +103,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="gender" class="form-label">Gender</label>
                             <select id="gender" name="gender" class="form-select @error('gender') is-invalid @enderror">
@@ -93,6 +115,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="father_name" class="form-label">Father's Name</label>
                             <input type="text" class="form-control @error('father_name') is-invalid @enderror" id="father_name" name="father_name" value="{{ old('father_name') }}">
@@ -100,6 +123,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="cnic" class="form-label">CNIC</label>
                             <input type="text" class="form-control @error('cnic') is-invalid @enderror" id="cnic" name="cnic" value="{{ old('cnic') }}">
@@ -107,6 +131,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
                             <textarea class="form-control @error('address') is-invalid @enderror" id="address" name="address">{{ old('address') }}</textarea>
@@ -114,6 +139,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="emergency_contact" class="form-label">Emergency Contact</label>
                             <input type="text" class="form-control @error('emergency_contact') is-invalid @enderror" id="emergency_contact" name="emergency_contact" value="{{ old('emergency_contact') }}">
@@ -121,6 +147,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="religion" class="form-label">Religion</label>
                             <input type="text" class="form-control @error('religion') is-invalid @enderror" id="religion" name="religion" value="{{ old('religion') }}">
@@ -128,6 +155,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
                             <select id="status" name="status" class="form-select @error('status') is-invalid @enderror">
@@ -138,6 +166,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="profile_picture" class="form-label">Profile Picture</label>
                             <input type="file" class="form-control @error('profile_picture') is-invalid @enderror" id="profile_picture" name="profile_picture">
@@ -145,6 +174,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>

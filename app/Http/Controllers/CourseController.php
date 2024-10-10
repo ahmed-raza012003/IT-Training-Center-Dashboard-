@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Http\Request;
-use App\Models\Course;
-use App\Models\Batch;
-use App\Models\Instructor;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Services\CourseService;
+use App\Models\Course;
+use App\Models\Batch;
+use App\Models\Instructor;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -22,7 +21,7 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = $this->courseService->getAll();
+        $courses = Course::with(['batch'])->paginate(10);
         return view('content.course.index', compact('courses'));
     }
 
@@ -35,17 +34,14 @@ class CourseController extends Controller
 
     public function store(StoreCourseRequest $request)
     {
-        $validatedData = $request->validated();
+        $data = $request->validated();
 
-        // Check if an image file is present
+        // Handle image upload if it exists
         if ($request->hasFile('image')) {
-            // Store the image in the public directory
-            $validatedData['image'] = $request->file('image')->store('course_images', 'public');
+            $data['image'] = $request->file('image')->store('course_images', 'public');
         }
 
-        // Call the service to create the course
-        $this->courseService->create($validatedData);
-
+        $this->courseService->create($data);
         return redirect()->route('courses.index')->with('success', 'Course created successfully.');
     }
 
@@ -57,29 +53,28 @@ class CourseController extends Controller
     }
 
     public function update(UpdateCourseRequest $request, Course $course)
-    {
-        $validatedData = $request->validated();
+{
+    $data = $request->validated();
 
-        // Check if a new image is uploaded
-        if ($request->hasFile('image')) {
-            // Delete the old image if it exists
-            if ($course->image) {
-                Storage::disk('public')->delete($course->image);
-            }
-
-            // Store the new image
-            $validatedData['image'] = $request->file('image')->store('course_images', 'public');
+    // Handle image upload if it exists
+    if ($request->hasFile('image')) {
+        // Delete the old image if it exists
+        if ($course->image) {
+            Storage::disk('public')->delete($course->image);
         }
-
-        // Call the service to update the course
-        $this->courseService->update($course, $validatedData);
-
-        return redirect()->route('courses.index')->with('success', 'Course updated successfully.');
+        // Store the new image
+        $data['image'] = $request->file('image')->store('course_images', 'public');
     }
+
+    // Update course using the service
+    $this->courseService->update($course, $data);
+
+    return redirect()->route('courses.index')->with('success', 'Course updated successfully.');
+}
+
 
     public function destroy(Course $course)
     {
-        // Delete the image if it exists
         if ($course->image) {
             Storage::disk('public')->delete($course->image);
         }

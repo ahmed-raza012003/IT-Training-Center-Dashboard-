@@ -29,6 +29,7 @@ class Student extends Model
         'status',
         'profile_picture',
         'registration_number',
+        'instructor_id',
     ];
     
     protected static function booted()
@@ -69,6 +70,11 @@ class Student extends Model
 public function feeSubmissions()
     {
         return $this->hasMany(FeeSubmission::class);
+    }
+ 
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class);
     }
     
 }

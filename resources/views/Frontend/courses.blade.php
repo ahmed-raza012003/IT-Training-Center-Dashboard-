@@ -200,227 +200,43 @@
         </div>
     </section>
 
-    <!---------- Bread Crumb Area End ---------->
-    <section class="grid-view courses-list-view">
-        <div class="container">
-            <div class="row">
-    
-                <div class="courses-card courses-list-view-card mb-5">
-                    <div class="row mt-5">
+   <!---------- Bread Crumb Area End ---------->
+
+<section class="grid-view courses-list-view">
+    <div class="container">
+        <div class="row">
+            <div class="courses-card courses-list-view-card mb-5">
+                <div class="row mt-5">
+                    @foreach ($courses as $course) <!-- Loop through each course -->
                         <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="wordpresstheme.html" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
+                            <a href="{{ route('courses.show', $course->id) }}" class="checkPropagation courses-card-body text-decoration-none">
+                                <div class="boxx border rounded-4 shadow">
                                     <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/course_thumbnail.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
+                                        <img loading="lazy" src="{{ asset('storage/' . $course->image) }}" class="h-100 object-fit-cover rounded-top-4 w-100" alt="{{ $course->name }}">
                                         <div class="courses-icon" id="coursesWishlistIcon12">
                                             <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
                                         </div>
                                     </div>
                                     <div class="courses-text p-3">
-                                        <p class="mb-2 fw-bold fs-5 text-black">WordPress Theme</p>
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="text-secondary">Master the Art of WordPress Development and Transform Your Skills into Creating Professional, Stunning Websites with Ease and Confidence!</p>
+                                        <p class="mb-2 fw-bold fs-5 text-black">{{ $course->name }}</p>
+                                        <p class="text-secondary">{{ $course->details }}</p>
                                         <div class="">
                                             <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
+                                                READ MORE
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/fullstackcourse.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <p class="mb-2 fw-bold fs-5 text-black">Full Stack Development</p>
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="text-secondary">Full Stack Development and Build User-Friendly Websites—Perfect for Beginners and Aspiring Web Designers</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/appdesign.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">App Design</p>
-                                        <p class="text-secondary">Master React Native and Build Mobile Apps for iOS and Android—Great for Anyone Interested in Cross-Platform</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/graphidesign.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">Graphic Design</p>
-                                        <p class="text-secondary">Learn Graphic Design and Create Stunning Visuals for Web, Print, and Social Media—Ideal for Beginners and Aspiring Designers</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/socialmediacourse.avif') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">Social Media Marketing</p>
-                                        <p class="text-secondary">Learn Social Media Marketing to Grow Your Business and Boost Engagement—Great for Aspiring Digital Marketers and Entrepreneurs</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/videoediting.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">Video Editing</p>
-                                        <p class="text-secondary">Master Video Editing and Create Engaging, Professional Videos—Great for Beginners and Future Content Creators</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/ecommercecourse.avif') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">E-Commerce</p>
-                                        <p class="text-secondary">Learn E-Commerce to Create Profitable, Customized Online Stores—Ideal for Aspiring eCommerce Developers and Entrepreneurs</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/officemanagement.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">Office Management</p>
-                                        <p class="text-secondary">Develop Office Management Skills to Improve Productivity and Organize Business Tasks—Perfect for Future Managers and Administrators</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3">
-                            <a href="#" class="checkPropagation courses-card-body text-decoration-none">
-                                <div class="boxx border rounded-4 shadow ">
-                                    <div class="courses-card-image position-relative">
-                                        <img loading="lazy" src="{{ asset('assets/images/ebook.jpg') }}"
-                                            class="h-100 object-fit-cover rounded-top-4 w-100">
-                                        <div class="courses-icon" id="coursesWishlistIcon12">
-                                            <i class="fa-solid fa-heart checkPropagation bg-white p-2 position-absolute rounded-4 text-black-50"></i>
-                                        </div>
-                                    </div>
-                                    <div class="courses-text p-3">
-                                        <div class="review-icon align-items-center d-flex ">
-                                        </div>
-                                        <p class="mb-2 fw-bold fs-5 text-black">Quick Books</p>
-                                        <p class="text-secondary">Develop E-Book Skills to Improve Productivity and Organize Business Tasks—Perfect for Future Managers and Administrators</p>
-                                        <div class="">
-                                            <button class="border-0 text-light mt-3 mb-3" style="background-color: #EF7A15;padding: 3px 26px; border-radius: 42px;">
-                                                READ MORE</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
-    
             </div>
-        </section>
-    
-    <!-- Footer Section Started -->
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section Started -->
 
     <section class="footer wow position-relative pt-5" style="background-color: #1f1c35;">
         <div class="container">

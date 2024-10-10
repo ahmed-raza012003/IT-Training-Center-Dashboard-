@@ -19,13 +19,11 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 
-    <link rel="stylesheet" href="assets/style.css">
-</head>
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}"></head>
 
 <body>
 
     <!-- Top Navbar Started  -->
-
     <div class="bg-dark">
         <div class="container">
             <div class="row justify-content-center align-item-center pt-2 pb-2">
@@ -42,7 +40,7 @@
                         <span class="text-light"> +92 327 0017770</span>
                     </span>
                 </div>
-
+    
                 <div class="col-4 col-md-4 col-sm-4 col-12 d-flex justify-content-center">
                     <span class="fs-6 text-dark text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="color: #228B22;"
@@ -54,7 +52,7 @@
                         <span class="text-light"> info@ITWork.Center</span>
                     </span>
                 </div>
-
+    
                 <div class="col-4 col-md-4 col-sm-4 col-12 d-flex justify-content-center justify-content-md-end">
                     <span class="fs-6 text-dark text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="color: #228B22;"
@@ -71,18 +69,17 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+    
 
     <!-- Top Navbar Ended -->
 
     <!-- Navbar Started -->
-    <div class="container shadow " style="border-radius: 40px;">
+    <div class="container shadow" style="border-radius: 40px;">
         <nav class="navbar navbar-expand-lg mt-5">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo.png" style="height: 45px;" alt="">
+                    <img src="{{ asset('assets/images/logo.png') }}" style="height: 45px;" alt="Logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -102,17 +99,16 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle text-black " style="font-size: 17px;"
+                                    <a class="dropdown-item dropdown-toggle text-black" style="font-size: 17px;"
                                         href="#">Web Design</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Frontend</a></li>
                                         <li><a class="dropdown-item" href="#">Backend</a></li>
-                                        <li><a class="dropdown-item" href="wordpress.html">Wordpress Theme</a></li>
-                                        <a></a>
+                                        <li><a class="dropdown-item" href="{{ asset('wordpresstheme.html') }}">Wordpress Theme</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle text-black " style="font-size: 17px;"
+                                    <a class="dropdown-item dropdown-toggle text-black" style="font-size: 17px;"
                                         href="#">Graphic Design</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Adobe PhotoShop</a></li>
@@ -120,15 +116,15 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle text-black " style="font-size: 17px;"
+                                    <a class="dropdown-item dropdown-toggle text-black" style="font-size: 17px;"
                                         href="#">App Development</a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">React Native </a></li>
-                                        <li><a class="dropdown-item" href="#">Flutter </a></li>
+                                        <li><a class="dropdown-item" href="#">React Native</a></li>
+                                        <li><a class="dropdown-item" href="#">Flutter</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item dropdown-toggle text-black " style="font-size: 17px;"
+                                    <a class="dropdown-item dropdown-toggle text-black" style="font-size: 17px;"
                                         href="#">E-Commerce</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Shopify</a></li>
@@ -136,16 +132,15 @@
                                         <li><a class="dropdown-item" href="#">Amazon</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="dropdown-item text-black" href="#">Social Media Maketing</a></li>
+                                <li><a class="dropdown-item text-black" href="#">Social Media Marketing</a></li>
                                 <li><a class="dropdown-item text-black" href="#">Video Editing</a></li>
                             </ul>
                         </div>
-
-
+    
                         <li class="nav-item">
                             <a class="nav-link ps-3 text-black fw-bold" style="font-size: 16px;" href="#">About us</a>
                         </li>
-
+    
                         <div class="dropdown">
                             <button data-mdb-button-init data-mdb-ripple-init data-mdb-dropdown-init
                                 class="btn dropdown-toggle text-black fw-bold" type="button" id="dropdownMenuButton"
@@ -160,23 +155,19 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </div>
-
-
-                        <!-- <li class="nav-item">
-                            <a class="nav-link ps-3" href="#">Trainings</a>
-                        </li> -->
+    
                         <li class="nav-item">
-                            <a class="nav-link ps-3 text-black fw-bold" style="font-size: 16px;"
-                                aria-disabled="true">Contact us</a>
+                            <a class="nav-link ps-3 text-black fw-bold" style="font-size: 16px;" aria-disabled="true">Contact us</a>
                         </li>
+                    </ul>
+                    <div>
+                        <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
+                            style="background-color: #EF7A15;">Get Started</button>
+                    </div>
                 </div>
-                <div>
-                    <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
-                        style="background-color: #EF7A15;">Get Started</button>
-                </div>
-            </div>
-        </nav>
-    </div>
+            </nav>
+        </div>
+    
     <!-- Navbar Ended -->
 
     <!-- Details -->
@@ -184,86 +175,82 @@
     <!---------- Banner Start ---------->
     <section>
         <div class="bread-crumb courses-details mt-5"
-            style=" background-image: url(images/course-breadcramb\ \(1\).png); background-size: cover;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-12 col-sm-12 col-12">
-                        <div class="courses-details-1st-text fw-600 text-light fs-1 mb-4 mt-5">
-                            <h1 class="mb-4">WordPress Theme Development with Bootstrap</h1>
-                            <p class="mb-3 text-light fs-5 mb-3">Learn how to confidently develop custom &amp;
-                                profitable
-                                Responsive
-                                WordPress Themes and Websites with no prior experience.</p>
-                            <div class="review">
-                                <div class="row ">
-                                    <div class="col-12 course-heading-info mb-3 d-flex flex-wrap">
-                                        <div class="info-tag d-flex  fs-6  me-4">
-                                            <img loading="lazy" width="25px" height="25px"
-                                                class="rounded-circle object-fit-cover me-1" src="images/instruct.jpg">
-                                            <p class="text-12px mt-5px me-1">Created by</p>
-                                            <p class="text-15px">
-                                                <a class="created-by-instructor text-decoration-none text-white"
-                                                    href="#">John
-                                                    Doe</a>
-                                            </p>
-                                        </div>
-
-                                        <div class="info-tag d-flex  fs-6  me-4">
-                                            <i class="fa-regular fa-clock text-15px" style=" margin-top: 4px;"></i>
-                                            <p class="text-15px ">24:11:44 Hours</p>
-                                        </div>
-                                        <div class="info-tag d-flex  fs-6  me-4">
-                                            <i class="fa-regular fa-user text-15px  " style=" margin-top: 4px;"></i>
-                                            <p class="text-15px ">1 Enrolled</p>
-                                        </div>
-
-                                        <div class="info-tag d-flex  fs-6  me-4">
-                                            <div class="icon">
-                                                <ul class="d-flex list-unstyled ps-0">
-                                                    <li class="me-0 text-warning"><i
-                                                            class="fa-solid fa-star text-15px  mt-7px"></i>
-                                                    </li>
-                                                    <li class="me-0 text-warning"><i
-                                                            class="fa-solid fa-star text-15px  mt-7px"></i>
-                                                    </li>
-                                                    <li class="me-0 text-warning"><i
-                                                            class="fa-solid fa-star text-15px  mt-7px"></i>
-                                                    </li>
-                                                    <li class="me-0 text-warning"><i
-                                                            class="fa-solid fa-star text-15px  mt-7px"></i>
-                                                    </li>
-                                                    <li class="me-0"><i
-                                                            class="fa-solid fa-star text-light text-15px  mt-7px"></i>
-                                                    </li>
-                                                    <p class="text-15px ">(2 Reviews)</p>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-
+        style="background-image: url({{ asset('asset/images/course-breadcramb (1).png') }}); background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                    <div class="courses-details-1st-text fw-600 text-light fs-1 mb-4 mt-5">
+                        <h1 class="mb-4">WordPress Theme Development with Bootstrap</h1>
+                        <p class="mb-3 text-light fs-5 mb-3">Learn how to confidently develop custom &amp; profitable
+                            Responsive
+                            WordPress Themes and Websites with no prior experience.</p>
+                        <div class="review">
+                            <div class="row ">
+                                <div class="col-12 course-heading-info mb-3 d-flex flex-wrap">
+                                    <div class="info-tag d-flex fs-6 me-4">
+                                        <img loading="lazy" width="25px" height="25px"
+                                            class="rounded-circle object-fit-cover me-1" src="{{ asset('asset/images/instruct.jpg') }}">
+                                        <p class="text-12px mt-5px me-1">Created by</p>
+                                        <p class="text-15px">
+                                            <a class="created-by-instructor text-decoration-none text-white" href="#">John
+                                                Doe</a>
+                                        </p>
                                     </div>
-                                    <div class="col-12 course-heading-info mb-3 d-flex flex-wrap">
-                                        <div class="info-tag d-flex  fs-6  me-4">
-                                            <i class="fas fa-language text-15px mt-8px" style=" margin-top: 4px;"></i>
-                                            <p class="text-15px">English</p>
-                                        </div>
-
-                                        <div class="info-tag d-flex  fs-6  me-4">
-                                            <p><i class="far fa-calendar-alt text-15px mt-7px"></i></p>
-                                            <p class="text-12px mt-5px me-1">Last updated</p>
-                                            <p class="text-15px ">
-                                                Sun, 26-Nov-2023 </p>
+    
+                                    <div class="info-tag d-flex fs-6 me-4">
+                                        <i class="fa-regular fa-clock text-15px" style="margin-top: 4px;"></i>
+                                        <p class="text-15px ">24:11:44 Hours</p>
+                                    </div>
+                                    <div class="info-tag d-flex fs-6 me-4">
+                                        <i class="fa-regular fa-user text-15px" style="margin-top: 4px;"></i>
+                                        <p class="text-15px ">1 Enrolled</p>
+                                    </div>
+    
+                                    <div class="info-tag d-flex fs-6 me-4">
+                                        <div class="icon">
+                                            <ul class="d-flex list-unstyled ps-0">
+                                                <li class="me-0 text-warning"><i
+                                                        class="fa-solid fa-star text-15px mt-7px"></i>
+                                                </li>
+                                                <li class="me-0 text-warning"><i
+                                                        class="fa-solid fa-star text-15px mt-7px"></i>
+                                                </li>
+                                                <li class="me-0 text-warning"><i
+                                                        class="fa-solid fa-star text-15px mt-7px"></i>
+                                                </li>
+                                                <li class="me-0 text-warning"><i
+                                                        class="fa-solid fa-star text-15px mt-7px"></i>
+                                                </li>
+                                                <li class="me-0"><i
+                                                        class="fa-solid fa-star text-light text-15px mt-7px"></i>
+                                                </li>
+                                                <p class="text-15px ">(2 Reviews)</p>
+                                            </ul>
                                         </div>
                                     </div>
-
                                 </div>
+                                <div class="col-12 course-heading-info mb-3 d-flex flex-wrap">
+                                    <div class="info-tag d-flex fs-6 me-4">
+                                        <i class="fas fa-language text-15px mt-8px" style="margin-top: 4px;"></i>
+                                        <p class="text-15px">English</p>
+                                    </div>
+    
+                                    <div class="info-tag d-flex fs-6 me-4">
+                                        <p><i class="far fa-calendar-alt text-15px mt-7px"></i></p>
+                                        <p class="text-12px mt-5px me-1">Last updated</p>
+                                        <p class="text-15px ">
+                                            Sun, 26-Nov-2023 </p>
+                                    </div>
+                                </div>
+    
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    
     </section>
     <!---------- Banner Area End ---------->
 
@@ -273,58 +260,58 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 order-2 order-lg-1">
                     <div class=" bg-white course-left-side p-2 rounded-4 shadow" style=" margin-top: -35px;">
-                        <ul class=" border-bottom justify-content-between mx-4 nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link active border-0 d-inline-block fs-6 fw-medium nav-link position-relative py-2"
-                                    id="course-overview-tab" data-bs-toggle="tab" data-bs-target="#course-overview"
-                                    type="button" role="tab" aria-controls="course-overview" aria-selected="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18.666"
-                                        viewBox="0 0 14 18.666">
-                                        <g id="Group_8" data-name="Group 8" transform="translate(14 0) rotate(90)">
-                                            <path id="Shape"
-                                                d="M7,14.307l3.7,3.78c1.3,1.326,3.3.227,3.3-1.81V0H0V16.277c0,2.037,2,3.136,3.3,1.81ZM2,2.385V16.277l5-5.11,5,5.11V2.385Z"
-                                                transform="translate(0 14) rotate(-90)" fill="#1e293b"
-                                                fill-rule="evenodd" />
-                                        </g>
-                                    </svg>
+                       <ul class="border-bottom justify-content-between mx-4 nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button
+            class="nav-link active border-0 d-inline-block fs-6 fw-medium nav-link position-relative py-2"
+            id="course-overview-tab" data-bs-toggle="tab" data-bs-target="#course-overview"
+            type="button" role="tab" aria-controls="course-overview" aria-selected="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="18.666"
+                viewBox="0 0 14 18.666">
+                <g id="Group_8" data-name="Group 8" transform="translate(14 0) rotate(90)">
+                    <path id="Shape"
+                        d="M7,14.307l3.7,3.78c1.3,1.326,3.3.227,3.3-1.81V0H0V16.277c0,2.037,2,3.136,3.3,1.81ZM2,2.385V16.277l5-5.11,5,5.11V2.385Z"
+                        transform="translate(0 14) rotate(-90)" fill="#1e293b"
+                        fill-rule="evenodd" />
+                </g>
+            </svg>
+            <span class="ms-2" style="color: #1E293B;">Overview</span>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="border-0 d-inline-block fs-6 fw-medium nav-link position-relative py-2"
+            id="instructor-tab" data-bs-toggle="tab" data-bs-target="#instructor" type="button"
+            role="tab" aria-controls="contact" aria-selected="false">
+            <svg id="Group_12" data-name="Group 12" xmlns="http://www.w3.org/2000/svg"
+                width="15.582" height="19.666" viewBox="0 0 15.582 19.666">
+                <path id="Shape"
+                    d="M7.791,1.731a6.06,6.06,0,0,0-6.06,6.06V9.522A.866.866,0,1,1,0,9.522V7.791a7.791,7.791,0,0,1,15.582,0V9.522a.866.866,0,1,1-1.731,0V7.791A6.06,6.06,0,0,0,7.791,1.731Z"
+                    transform="translate(0 9.278)" fill="#1e293b" />
+                <path id="Shape-2" data-name="Shape"
+                    d="M5.194,8.656A3.463,3.463,0,1,0,1.731,5.194,3.463,3.463,0,0,0,5.194,8.656Zm0,1.731A5.194,5.194,0,1,0,0,5.194,5.194,5.194,0,0,0,5.194,10.388Z"
+                    transform="translate(2.597)" fill="#1e293b" fill-rule="evenodd" />
+            </svg>
+            <span class="ms-2" style="color: #1E293B;">Instructor</span>
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="border-0 d-inline-block fs-6 fw-medium nav-link position-relative py-2"
+            id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
+            role="tab" aria-controls="reviews" aria-selected="false">
+            <svg id="Group_14" data-name="Group 14" xmlns="http://www.w3.org/2000/svg"
+                width="20" height="19.749" viewBox="0 0 20 19.749">
+                <path id="Shape"
+                    d="M5,13.9V17L10.062,14,10.591,14A40.888,40.888,0,0,0,16,13.533a1.9,1.9,0,0,0,1.649-1.542A23.708,23.708,0,0,0,18,8a23.709,23.709,0,0,0-.346-3.991A1.9,1.9,0,0,0,16,2.467,40.515,40.515,0,0,0,10,2a40.514,40.514,0,0,0-6,.467A1.9,1.9,0,0,0,2.346,4.009,23.7,23.7,0,0,0,2,8a23.7,23.7,0,0,0,.346,3.991,1.859,1.859,0,0,0,1.285,1.455ZM.375,3.67A3.9,3.9,0,0,1,3.695.489,42.513,42.513,0,0,1,10,0a42.512,42.512,0,0,1,6.305.489,3.9,3.9,0,0,1,3.319,3.18A25.7,25.7,0,0,1,20,8a25.694,25.694,0,0,1-.375,4.33,3.9,3.9,0,0,1-3.319,3.18,42.9,42.9,0,0,1-5.681.484L4.509,19.608A1,1,0,0,1,3,18.748v-3.4A3.859,3.859,0,0,1,.375,12.33,25.7,25.7,0,0,1,0,8,25.7,25.7,0,0,1,.375,3.67Z"
+                    fill="#1e293b" fill-rule="evenodd" />
+                <path id="Shape-2" data-name="Shape"
+                    d="M1,0A1,1,0,0,0,1,2H11a1,1,0,0,0,0-2ZM1,4A1,1,0,0,0,1,6H5A1,1,0,0,0,5,4Z"
+                    transform="translate(4 5)" fill="#1e293b" fill-rule="evenodd" />
+            </svg>
+            <span class="ms-2" style="color: #1E293B;">Reviews</span>
+        </button>
+    </li>
+</ul>
 
-                                    <span class="ms-2 " style="color: #1E293B;">Overview</button></span>
-                            </li>
-                            <!-- c -->
-                            <li class="nav-item" role="presentation">
-                                <button class=" border-0 d-inline-block fs-6 fw-medium nav-link position-relative py-2"
-                                    id="instructor-tab" data-bs-toggle="tab" data-bs-target="#instructor" type="button"
-                                    role="tab" aria-controls="contact" aria-selected="false">
-                                    <svg id="Group_12" data-name="Group 12" xmlns="http://www.w3.org/2000/svg"
-                                        width="15.582" height="19.666" viewBox="0 0 15.582 19.666">
-                                        <path id="Shape"
-                                            d="M7.791,1.731a6.06,6.06,0,0,0-6.06,6.06V9.522A.866.866,0,1,1,0,9.522V7.791a7.791,7.791,0,0,1,15.582,0V9.522a.866.866,0,1,1-1.731,0V7.791A6.06,6.06,0,0,0,7.791,1.731Z"
-                                            transform="translate(0 9.278)" fill="#1e293b" />
-                                        <path id="Shape-2" data-name="Shape"
-                                            d="M5.194,8.656A3.463,3.463,0,1,0,1.731,5.194,3.463,3.463,0,0,0,5.194,8.656Zm0,1.731A5.194,5.194,0,1,0,0,5.194,5.194,5.194,0,0,0,5.194,10.388Z"
-                                            transform="translate(2.597)" fill="#1e293b" fill-rule="evenodd" />
-                                    </svg>
-
-                                    <span class="ms-2" style="color: #1E293B;">Instructor</span></button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="border-0 d-inline-block fs-6 fw-medium nav-link position-relative py-2"
-                                    id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
-                                    role="tab" aria-controls="reviews" aria-selected="false">
-                                    <svg id="Group_14" data-name="Group 14" xmlns="http://www.w3.org/2000/svg"
-                                        width="20" height="19.749" viewBox="0 0 20 19.749">
-                                        <path id="Shape"
-                                            d="M5,13.9V17L10.062,14,10.591,14A40.888,40.888,0,0,0,16,13.533a1.9,1.9,0,0,0,1.649-1.542A23.708,23.708,0,0,0,18,8a23.709,23.709,0,0,0-.346-3.991A1.9,1.9,0,0,0,16,2.467,40.515,40.515,0,0,0,10,2a40.514,40.514,0,0,0-6,.467A1.9,1.9,0,0,0,2.346,4.009,23.7,23.7,0,0,0,2,8a23.7,23.7,0,0,0,.346,3.991,1.859,1.859,0,0,0,1.285,1.455ZM.375,3.67A3.9,3.9,0,0,1,3.695.489,42.513,42.513,0,0,1,10,0a42.512,42.512,0,0,1,6.305.489,3.9,3.9,0,0,1,3.319,3.18A25.7,25.7,0,0,1,20,8a25.694,25.694,0,0,1-.375,4.33,3.9,3.9,0,0,1-3.319,3.18,42.9,42.9,0,0,1-5.681.484L4.509,19.608A1,1,0,0,1,3,18.748v-3.4A3.859,3.859,0,0,1,.375,12.33,25.7,25.7,0,0,1,0,8,25.7,25.7,0,0,1,.375,3.67Z"
-                                            fill="#1e293b" fill-rule="evenodd" />
-                                        <path id="Shape-2" data-name="Shape"
-                                            d="M1,0A1,1,0,0,0,1,2H11a1,1,0,0,0,0-2ZM1,4A1,1,0,0,0,1,6H5A1,1,0,0,0,5,4Z"
-                                            transform="translate(4 5)" fill="#1e293b" fill-rule="evenodd" />
-                                    </svg>
-
-                                    <span class="ms-2" style="color: #1E293B;">Reviews</span></button>
-                            </li>
-                        </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="course-overview" role="tabpanel"
                                 aria-labelledby="course-overview-tab">
