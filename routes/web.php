@@ -111,15 +111,19 @@ Route::delete('/staff/{id}', [StaffController::class, 'destroy'])->name('staff.d
 
 
 
-// Route to view all attendances
-Route::get('/attendance/create', [AttendanceController::class, 'create'])->name('attendance.create');
-Route::post('attendance/checkin/{id}', [AttendanceController::class, 'checkIn'])->name('attendance.checkin');
-Route::post('attendance/checkout/{id}', [AttendanceController::class, 'checkOut'])->name('attendance.checkout');
+// Route to view all attendances// Attendance Routes
+Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index'); // View all attendance
+Route::post('/attendance/checkin/{id}', [AttendanceController::class, 'checkIn'])->name('attendance.checkin'); // Check-in route
+Route::post('/attendance/checkout/{id}', [AttendanceController::class, 'checkOut'])->name('attendance.checkout'); // Check-out route
+Route::post('/attendance/break/{id}', [AttendanceController::class, 'startBreak'])->name('attendance.break'); // Start break
+Route::post('/attendance/endbreak/{id}', [AttendanceController::class, 'endBreak'])->name('attendance.endbreak'); // End break
+Route::get('/attendance/record', [AttendanceController::class, 'showRecentAttendance'])->name('attendance.record');
+// Route for displaying the form to record attendance for all staff
+Route::get('/attendance/create-bulk', [AttendanceController::class, 'create'])->name('attendance.createBulk');
 
-Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+// Route for storing attendance records
+Route::post('/attendance/create-bulk', [AttendanceController::class, 'store'])->name('attendance.storeBulk');
 
-// Route to store a new attendance record
-Route::post('/attendance', [AttendanceController::class, 'store'])->name('attendance.store');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 });

@@ -178,6 +178,10 @@
                                 style="background-color: #EF7A15;">Get Started</button>
                         
                         </a>    </div>
+                        <div class="m-2">
+                            <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+        
+                         </div>
                 </div>
 
             </div>

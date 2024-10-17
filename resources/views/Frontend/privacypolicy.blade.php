@@ -162,6 +162,10 @@
                         <button class="pt-2 pb-2 ps-3 pe-3 ms-auto border-0 text-light rounded"
                             style="background-color: #EF7A15;">Get Started</button>
                     </div>
+                    <div class="m-2">
+                        <a href="{{ route('login') }}" class="btn btn-secondary">Login</a>
+    
+                     </div>
                 </div>
             </div>
         </nav>

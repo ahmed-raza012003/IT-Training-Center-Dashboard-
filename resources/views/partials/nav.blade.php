@@ -162,7 +162,13 @@
                                     <div class="collapse" id="sidebarStaff">
                                         <ul class="nav sub-navbar-nav">
                                             <li class="sub-nav-item"> 
+                                                <a class="sub-nav-link" href="{{ route('attendance.createBulk') }}">Attendance Create</a>
+                                            </li>
+                                            <li class="sub-nav-item"> 
                                                 <a class="sub-nav-link" href="{{ route('attendance.index') }}">Attendance</a>
+                                            </li>
+                                            <li class="sub-nav-item"> 
+                                                <a class="sub-nav-link" href="{{ route('attendance.record') }}">Attendance Record</a>
                                             </li>
                                             
                                           

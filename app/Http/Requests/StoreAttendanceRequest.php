@@ -8,14 +8,14 @@ class StoreAttendanceRequest extends FormRequest
 {
     public function authorize()
     {
-        return true; // Adjust based on your authorization logic
+        return true;
     }
 
     public function rules()
     {
         return [
-            'staff_id' => 'required|exists:staff,id', // Validate that staff ID exists in the staff table
-            'status' => 'required|string|in:present,absent,full_day_leave,half_day_leave,late',
+            'staff_id' => 'required|exists:staff_members,id',
+            'status' => 'required|string|in:present,absent,half_day_leave,late',
         ];
     }
 
